@@ -351,3 +351,47 @@ footer {
   .three-col { grid-template-columns: 1fr; }
   .section-title { font-size: 1.9rem; }
 }
+
+/* ── FEATHER ICONS ── */
+.icon { display:inline-block; vertical-align:middle; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.icon-sm  { width:13px; height:13px; }
+.icon-md  { width:16px; height:16px; }
+.icon-lg  { width:18px; height:18px; }
+.icon-xl  { width:20px; height:20px; }
+.icon-wrap { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.icon-wrap-sm { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+/* Context-specific icon sizing */
+/* Risk cards: small icon above a label — 16px */
+.risk-card-icon .icon { width:16px; height:16px; }
+
+/* Mission cards (about page): centered icon in white card — 20px */
+.mission-icon .icon { width:20px; height:20px; }
+
+/* Resource cards: icon above card title — 18px */
+.rc-icon .icon { width:18px; height:18px; }
+
+/* Care goal cards on dark background — 18px */
+.cg-icon .icon { width:18px; height:18px; }
+
+/* Louisiana resource list items — 16px inside 44px container */
+.la-item-icon .icon { width:16px; height:16px; }
+
+/* Contact info cards — 16px inside 46px container */
+.ci-icon .icon { width:16px; height:16px; }
+
+/* Inline heading icons (h3 inside treatment/resources cards) */
+h3 > .icon { width:16px; height:16px; position:relative; top:-1px; }
+
+/* ── SECTION IMAGES ── */
+.section-img { width:100%; border-radius:14px; object-fit:cover; display:block; }
+.section-img-wrap { position:relative; overflow:hidden; border-radius:14px; box-shadow:var(--shadow-lg); }
+.section-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+.img-caption { font-size:.75rem; color:var(--text-light); margin-top:.5rem; }
+
+/* hero image overlay */
+.hero-img-panel { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.4); }
+.hero-img-panel img { width:100%; height:420px; object-fit:cover; display:block; filter:brightness(.9); }
+.hero-img-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(26,39,68,.6) 0%, transparent 50%); }
+.hero-img-badge { position:absolute; bottom:1.25rem; left:1.25rem; right:1.25rem; display:flex; gap:.75rem; flex-wrap:wrap; }
+.hero-img-pill { background:rgba(255,255,255,.15); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); color:var(--white); font-size:.75rem; font-weight:600; padding:.35rem .75rem; border-radius:2rem; }
