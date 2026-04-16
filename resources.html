@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources – ADRD Louisiana</title>
+<meta name="description" content="Find Louisiana-specific resources for Alzheimer's and dementia care — helplines, support groups, caregiver resources, and clinical research programs.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.resource-card{background:var(--white);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow-sm);border-top:3px solid var(--gold);transition:transform .2s,box-shadow .2s;}
+.resource-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.resource-card .rc-icon{font-size:1.8rem;margin-bottom:.75rem;}
+.resource-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
+.resource-card p{font-size:.86rem;color:var(--text-mid);line-height:1.6;margin-bottom:.75rem;}
+.resource-card a.rc-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.83rem;font-weight:600;color:var(--teal);text-decoration:none;transition:color .2s;}
+.resource-card a.rc-link:hover{color:var(--navy);}
+.helpline-banner{background:linear-gradient(135deg,var(--navy),#243358);border-radius:var(--radius);padding:2.5rem;text-align:center;margin-top:3rem;border:1px solid rgba(200,151,58,.25);}
+.helpline-banner h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--white);margin-bottom:.5rem;}
+.helpline-banner p{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:1.25rem;}
+.helpline-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold-light);}
+.la-resources{display:flex;flex-direction:column;gap:1rem;margin-top:2.5rem;}
+.la-item{background:var(--white);border-radius:var(--radius);padding:1.5rem 1.75rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;}
+.la-item-icon{width:44px;height:44px;background:rgba(26,39,68,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+.la-item h4{font-size:.93rem;font-weight:600;color:var(--navy);margin-bottom:.2rem;}
+.la-item p{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
+.la-item a{white-space:nowrap;font-size:.83rem;font-weight:600;color:var(--teal);text-decoration:none;transition:color .2s;}
+.la-item a:hover{color:var(--navy);}
+.caregiver-tips{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
+.ct-card{background:var(--cream);border-radius:var(--radius);padding:1.75rem;border-left:3px solid var(--teal);}
+.ct-card h3{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
+.ct-card ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
+.ct-card ul li{font-size:.87rem;color:var(--text-mid);display:flex;gap:.55rem;align-items:flex-start;}
+.ct-card ul li::before{content:'→';color:var(--teal);font-weight:700;flex-shrink:0;font-size:.75rem;margin-top:.18rem;}
+@media(max-width:768px){.resource-grid,.caregiver-tips{grid-template-columns:1fr;}.la-item{grid-template-columns:auto 1fr;}.la-item a{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html">Prevention</a></li>
+      <li><a href="diagnosis.html">Diagnosis</a></li>
+      <li><a href="treatment.html">Treatment</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#0e2030,#1a3545);">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse 60% 70% at 75% 50%,rgba(42,125,111,.22) 0%,transparent 60%);"></div>
+  <div class="container page-hero-content">
+    <span class="section-eyebrow">Support &amp; Resources</span>
+    <h1>Resources for <em>Patients,<br>Families &amp; Caregivers</em></h1>
+    <p>Whether you need a helpline, a local support group, caregiver training, or help navigating the healthcare system — these resources are here for you.</p>
+  </div>
+</div>
+
+<!-- HELPLINE BANNER -->
+<section class="white" style="padding-bottom:1rem;">
+  <div class="container">
+    <div class="helpline-banner">
+      <h3>Alzheimer's Association 24/7 Helpline</h3>
+      <p>Available around the clock in over 200 languages. Staffed by specialists who provide confidential support, crisis assistance, and referrals to local resources.</p>
+      <div class="helpline-num"><a href="tel:8002723900" style="color:var(--gold-light);text-decoration:none;">800-272-3900</a></div>
+      <p style="margin-top:.75rem;font-size:.8rem;color:rgba(255,255,255,.4);">Free · 24 hours a day, 7 days a week · 200+ languages</p>
+    </div>
+  </div>
+</section>
+
+<!-- NATIONAL RESOURCES -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow">National Organizations</span>
+    <h2 class="section-title">Trusted <em>National Resources</em></h2>
+    <div class="resource-grid">
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">🔵</div>
+        <h3>Alzheimer's Association</h3>
+        <p>The leading voluntary health organization in Alzheimer's care, support, and research. Provides free care consultation, support groups, education programs, and the 24/7 helpline.</p>
+        <a href="https://www.alz.org" class="rc-link" target="_blank" rel="noopener">alz.org →</a>
+      </div>
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">🧠</div>
+        <h3>Alzheimer's Disease Education &amp; Referral Center (ADEAR)</h3>
+        <p>A service of the National Institute on Aging. Provides current, comprehensive, and reliable information about Alzheimer's disease for patients, caregivers, and health professionals.</p>
+        <a href="https://www.nia.nih.gov/health/alzheimers" class="rc-link" target="_blank" rel="noopener">nia.nih.gov →</a>
+      </div>
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">🏛️</div>
+        <h3>Alzheimers.gov</h3>
+        <p>The official U.S. government portal for information on Alzheimer's and dementia research, treatment, clinical trials, caregiving resources, and federal programs.</p>
+        <a href="https://www.alzheimers.gov" class="rc-link" target="_blank" rel="noopener">alzheimers.gov →</a>
+      </div>
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">🔬</div>
+        <h3>ClinicalTrials.gov</h3>
+        <p>Official registry of all U.S. clinical trials. Search for Alzheimer's or dementia trials enrolling near you. ADRD Louisiana can help you understand eligibility and connect with research teams.</p>
+        <a href="https://clinicaltrials.gov" class="rc-link" target="_blank" rel="noopener">clinicaltrials.gov →</a>
+      </div>
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">🤝</div>
+        <h3>Lewy Body Dementia Association</h3>
+        <p>Specialized information, research support, and a care consultation service specifically for Lewy body dementia — a commonly misdiagnosed form of dementia with unique treatment considerations.</p>
+        <a href="https://www.lbda.org" class="rc-link" target="_blank" rel="noopener">lbda.org →</a>
+      </div>
+      <div class="resource-card scroll-reveal">
+        <div class="rc-icon">💜</div>
+        <h3>Caregiver Action Network</h3>
+        <p>Resources specifically for family caregivers — covering education, peer support, advocacy, and practical tools for managing the demands of caring for someone with dementia or other chronic conditions.</p>
+        <a href="https://www.caregiveraction.org" class="rc-link" target="_blank" rel="noopener">caregiveraction.org →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOUISIANA-SPECIFIC -->
+<section class="cream">
+  <div class="container">
+    <span class="section-eyebrow">Louisiana Resources</span>
+    <h2 class="section-title">Louisiana-Specific <em>Programs &amp; Services</em></h2>
+    <p class="section-lead">These programs are tailored to Louisiana residents and address the unique needs of our communities, including rural access and health disparity challenges.</p>
+    <div class="la-resources">
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">🏥</div>
+        <div><h4>Alzheimer's Association — Louisiana Chapter</h4><p>Your local chapter provides care consultations, support groups throughout the state, and community education programs. Free services for patients and families.</p></div>
+        <a href="https://www.alz.org/louisiana" target="_blank" rel="noopener">Visit →</a>
+      </div>
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">📋</div>
+        <div><h4>2023–2028 Louisiana ADRD State Plan</h4><p>Louisiana's official public health roadmap for addressing Alzheimer's and related dementias — including goals for early diagnosis, risk reduction, and caregiver support across the state.</p></div>
+        <a href="https://wellaheadla.com/healthy-aging/alzheimers-and-dementia/" target="_blank" rel="noopener">Learn More →</a>
+      </div>
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">🌿</div>
+        <div><h4>Well-Ahead Louisiana — Aging &amp; Brain Health</h4><p>State health department resources on Alzheimer's prevention, cognitive decline, and healthy aging in Louisiana. Includes community-level data and public health resources.</p></div>
+        <a href="https://wellaheadla.com" target="_blank" rel="noopener">Visit →</a>
+      </div>
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">🎓</div>
+        <div><h4>LSUHSC — Neuroscience Center</h4><p>Louisiana State University Health Sciences Center in New Orleans offers specialty neurology and neuropsychology services, as well as participation in Alzheimer's research programs.</p></div>
+        <a href="https://www.lsuhsc.edu" target="_blank" rel="noopener">Visit →</a>
+      </div>
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">🔬</div>
+        <div><h4>Tulane Neurosciences</h4><p>Tulane University Medical Center provides comprehensive memory evaluation, neuroimaging, neuropsychological testing, and access to clinical trials for Alzheimer's and related dementias.</p></div>
+        <a href="https://medicine.tulane.edu/departments/neurology" target="_blank" rel="noopener">Visit →</a>
+      </div>
+      <div class="la-item scroll-reveal">
+        <div class="la-item-icon">👴</div>
+        <div><h4>Louisiana Governor's Office of Elderly Affairs (GOEA)</h4><p>Statewide services including Area Agencies on Aging, home-based services, and caregiver support programs. A key connector to local services throughout all Louisiana parishes.</p></div>
+        <a href="https://goea.louisiana.gov" target="_blank" rel="noopener">Visit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREGIVER RESOURCES -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow">Caregiver Support</span>
+    <h2 class="section-title">Support for <em>Caregivers</em></h2>
+    <p class="section-lead">Louisiana's 168,000 unpaid dementia caregivers provide an estimated 256 million hours of care annually. Caregiver wellbeing is inseparable from patient wellbeing.</p>
+    <div class="caregiver-tips">
+      <div class="ct-card scroll-reveal">
+        <h3>🆘 When You Need Help Now</h3>
+        <ul>
+          <li>Alzheimer's Association 24/7 Helpline: 800-272-3900</li>
+          <li>For crisis situations, call 988 (Suicide &amp; Crisis Lifeline)</li>
+          <li>Contact your local Area Agency on Aging for emergency respite</li>
+          <li>National Alliance for Caregiving: www.caregiving.org</li>
+        </ul>
+      </div>
+      <div class="ct-card scroll-reveal">
+        <h3>📚 Education &amp; Training</h3>
+        <ul>
+          <li>Alzheimer's Association online education programs (free)</li>
+          <li>Savvy Caregiver Program — evidence-based training for dementia caregivers</li>
+          <li>Teepa Snow's Positive Approach to Care training resources</li>
+          <li>Dementia Care Central (free online guides and videos)</li>
+        </ul>
+      </div>
+      <div class="ct-card scroll-reveal">
+        <h3>🧘 Respite &amp; Self-Care</h3>
+        <ul>
+          <li>ARCH National Respite Network — find respite programs in Louisiana</li>
+          <li>Adult day programs provide supervised care and social engagement</li>
+          <li>In-home respite through local Area Agency on Aging programs</li>
+          <li>Caregiver support groups — online and in-person throughout Louisiana</li>
+        </ul>
+      </div>
+      <div class="ct-card scroll-reveal">
+        <h3>💰 Financial &amp; Legal Planning</h3>
+        <ul>
+          <li>Medicare.gov — coverage information for dementia care services</li>
+          <li>Medicaid waiver programs for home and community-based services</li>
+          <li>Consult an elder law attorney for power of attorney and advance directives</li>
+          <li>Benefits.gov — federal and state benefit programs for caregivers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teal" style="text-align:center;">
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--white);margin-bottom:1rem;">Can't Find What You Need?</h2>
+    <p style="color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 2rem;font-size:1rem;line-height:1.7;">Contact ADRD Louisiana directly. We'll help you find the right resource, specialist, or program for your specific situation.</p>
+    <a href="contact.html" class="btn btn-gold">Contact Us →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

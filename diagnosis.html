@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnosis – ADRD Louisiana</title>
+<meta name="description" content="Understand the signs of dementia, how diagnosis works, what screening exams are available, and when to see a specialist.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.warning-signs{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem;}
+.sign-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-sm);border-left:3px solid var(--diagnosis);transition:box-shadow .2s,transform .2s;}
+.sign-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.sign-card h4{font-size:.92rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;display:flex;gap:.5rem;align-items:center;}
+.sign-card p{font-size:.84rem;color:var(--text-mid);line-height:1.6;}
+.sign-num{width:26px;height:26px;background:var(--diagnosis);color:var(--white);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;}
+.process-steps{display:flex;flex-direction:column;gap:0;position:relative;margin-top:2.5rem;}
+.process-steps::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:rgba(26,90,138,.2);}
+.process-step{display:flex;gap:1.5rem;align-items:flex-start;padding:1.5rem 0;position:relative;}
+.step-dot{width:42px;height:42px;background:var(--diagnosis);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.9rem;flex-shrink:0;position:relative;z-index:1;}
+.step-body h4{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
+.step-body p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.screening-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.screening-card{background:var(--cream);border-radius:var(--radius);padding:1.75rem;border-top:3px solid var(--diagnosis);}
+.screening-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
+.screening-card .sub{font-size:.75rem;color:var(--text-light);margin-bottom:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.screening-card p{font-size:.86rem;color:var(--text-mid);line-height:1.65;}
+.faq-stack{display:flex;flex-direction:column;gap:.75rem;margin-top:2rem;}
+.faq-item{background:var(--white);border-radius:var(--radius);border:1px solid var(--cream-dark);overflow:hidden;}
+.faq-q{padding:1.1rem 1.4rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:.92rem;color:var(--navy);transition:background .2s;}
+.faq-q:hover{background:var(--cream);}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--diagnosis);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{padding:0 1.4rem;font-size:.88rem;color:var(--text-mid);line-height:1.7;display:none;}
+.faq-a p{padding:.25rem 0 1.1rem;}
+.types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
+.type-card{background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);}
+.type-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
+.type-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.type-pct{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--diagnosis);line-height:1;margin-bottom:.5rem;}
+@media(max-width:768px){.warning-signs,.screening-grid,.types-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html">Prevention</a></li>
+      <li><a href="diagnosis.html" class="active">Diagnosis</a></li>
+      <li><a href="treatment.html">Treatment</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#0e1a30,#1a3050);">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse 60% 70% at 75% 50%,rgba(26,90,138,.25) 0%,transparent 60%);"></div>
+  <div class="container page-hero-content">
+    <span class="section-eyebrow" style="color:rgba(200,151,58,.9);">Pillar Two</span>
+    <h1>Diagnosis — <em>Understanding<br>Your Cognitive Health</em></h1>
+    <p>Recognizing the early signs of dementia and pursuing a timely diagnosis can open the door to treatment, planning, and support. Here's what you need to know.</p>
+  </div>
+</div>
+
+<!-- WARNING SIGNS -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--diagnosis);">Early Warning Signs</span>
+    <h2 class="section-title">10 Warning Signs <em>of Dementia</em></h2>
+    <p class="section-lead">These signs go beyond normal age-related forgetfulness. If you or a loved one experience several of these, it's time to consult a doctor. Early detection significantly improves outcomes.</p>
+    <div class="warning-signs">
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">1</span>Memory loss that disrupts daily life</h4><p>Forgetting recently learned information, important dates, or events — and increasingly relying on memory aids or family members to recall things you used to handle independently.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">2</span>Challenges in planning or problem solving</h4><p>Difficulty following a familiar recipe, keeping track of monthly bills, or concentrating on tasks that involve numbers. Making more errors than usual in things you've done for years.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">3</span>Difficulty completing familiar tasks</h4><p>Trouble driving to a familiar location, managing finances, or remembering the rules of a favorite game. Needing repeated guidance for tasks that were once routine.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">4</span>Confusion with time or place</h4><p>Losing track of dates, seasons, and the passage of time. Sometimes forgetting where you are or how you got there. Difficulty understanding something if it isn't happening immediately.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">5</span>Trouble understanding visual images</h4><p>Problems with balance, difficulty reading, trouble judging distance, and problems distinguishing contrast. These can also be signs of cataracts — see a doctor to rule out other causes.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">6</span>New problems with words in speaking or writing</h4><p>Stopping in the middle of a conversation and having no idea how to continue. Struggling to find the right word, calling things by the wrong name ("that thing for the hand" instead of "watch").</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">7</span>Misplacing things and losing the ability to retrace steps</h4><p>Putting things in unusual places (iron in the refrigerator, wallet in the freezer). Unable to go back over steps to find a lost item. May accuse others of stealing.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">8</span>Decreased or poor judgment</h4><p>Changes in judgment or decision-making. Paying less attention to personal grooming. Falling for scams or giving large amounts of money to telemarketers.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">9</span>Withdrawal from work or social activities</h4><p>Removing oneself from hobbies, social activities, or other engagements. Trouble keeping up with a favorite sports team or remembering how to complete a favorite hobby.</p></div>
+      <div class="sign-card scroll-reveal"><h4><span class="sign-num">10</span>Changes in mood and personality</h4><p>Becoming confused, suspicious, depressed, fearful, or anxious. Easily upset when outside their comfort zone. Mood swings that seem out of character for the individual.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES OF DEMENTIA -->
+<section class="cream">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--diagnosis);">Types of Dementia</span>
+    <h2 class="section-title">Not All Dementia Is <em>Alzheimer's</em></h2>
+    <p class="section-lead">Alzheimer's disease accounts for the majority of dementia cases, but there are several distinct types — each with different underlying causes, progression patterns, and treatment approaches.</p>
+    <div class="types-grid">
+      <div class="type-card scroll-reveal"><div class="type-pct">60–80%</div><h3>Alzheimer's Disease</h3><p>The most common form. Characterized by amyloid plaques and tau tangles in the brain. Symptoms typically begin with short-term memory loss and progress to affect language, reasoning, and daily function. The only form currently with FDA-approved disease-modifying therapies.</p></div>
+      <div class="type-card scroll-reveal"><div class="type-pct">~10%</div><h3>Vascular Dementia</h3><p>Caused by reduced blood flow to the brain, often following a stroke or series of mini-strokes. Symptoms may appear suddenly after a vascular event or progress more gradually. Risk factors overlap heavily with heart disease. Especially prevalent in Louisiana given the state's high rates of hypertension and diabetes.</p></div>
+      <div class="type-card scroll-reveal"><div class="type-pct">~5%</div><h3>Lewy Body Dementia</h3><p>Caused by abnormal deposits of alpha-synuclein protein in the brain. Distinct features include vivid hallucinations, significant fluctuations in alertness, REM sleep behavior disorder, and Parkinson's-like movement symptoms. Often misdiagnosed as Alzheimer's or Parkinson's disease.</p></div>
+      <div class="type-card scroll-reveal"><div class="type-pct">~5%</div><h3>Frontotemporal Dementia (FTD)</h3><p>Affects the frontal and temporal lobes, causing changes in personality, behavior, and language rather than memory loss. More commonly strikes people in their 50s and 60s. Often misdiagnosed as a psychiatric condition. Includes variants such as Pick's disease and Primary Progressive Aphasia.</p></div>
+    </div>
+    <p style="font-size:.82rem;color:var(--text-light);margin-top:1.5rem;">* Many patients have mixed dementia — features of more than one type simultaneously. A comprehensive workup is essential for accurate diagnosis and appropriate treatment planning.</p>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC PROCESS -->
+<section class="dark">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">The Process</span>
+        <h2 class="section-title">How Does <em>Diagnosis Work?</em></h2>
+        <p class="section-lead">Diagnosing dementia involves ruling out other causes and identifying the specific type. There is no single test — a comprehensive evaluation is required.</p>
+        <a href="contact.html" class="btn btn-gold" style="margin-top:.5rem;">Find a Specialist</a>
+      </div>
+      <div class="process-steps">
+        <div class="process-step scroll-reveal"><div class="step-dot">1</div><div class="step-body"><h4>Medical History &amp; Interview</h4><p>Your doctor will ask about your symptoms, when they began, and how they've changed over time. Input from a family member or close friend is often invaluable, as patients may not be aware of the full extent of changes.</p></div></div>
+        <div class="process-step scroll-reveal"><div class="step-dot">2</div><div class="step-body"><h4>Cognitive &amp; Neuropsychological Testing</h4><p>Standardized tests assess memory, problem-solving, attention, counting, and language. Common screening tools include the Mini-Mental State Examination (MMSE), Montreal Cognitive Assessment (MoCA), and Mini-Cog. More detailed neuropsychological testing may follow.</p></div></div>
+        <div class="process-step scroll-reveal"><div class="step-dot">3</div><div class="step-body"><h4>Physical &amp; Neurological Exam</h4><p>A neurological exam assesses reflexes, coordination, balance, sensory function, and eye movements to identify signs that may indicate other neurological conditions contributing to symptoms.</p></div></div>
+        <div class="process-step scroll-reveal"><div class="step-dot">4</div><div class="step-body"><h4>Laboratory Tests</h4><p>Blood tests rule out reversible causes of cognitive decline such as thyroid disorders, vitamin B12 deficiency, infections, or medication interactions — all of which can mimic dementia symptoms.</p></div></div>
+        <div class="process-step scroll-reveal"><div class="step-dot">5</div><div class="step-body"><h4>Brain Imaging</h4><p>CT or MRI scans can reveal strokes, tumors, or shrinkage of brain regions associated with specific dementias. PET scans can detect amyloid plaques or glucose metabolism patterns characteristic of Alzheimer's disease.</p></div></div>
+        <div class="process-step scroll-reveal"><div class="step-dot">6</div><div class="step-body"><h4>Biomarker Testing (Advanced)</h4><p>Cerebrospinal fluid (CSF) analysis or specialized blood tests (e.g., plasma p-tau217) can detect Alzheimer's biomarkers with high accuracy. These tests are increasingly being used in clinical practice to confirm diagnosis before initiating anti-amyloid therapy.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENING TOOLS -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--diagnosis);">Screening Tools</span>
+    <h2 class="section-title">Common <em>Cognitive Screening Exams</em></h2>
+    <p class="section-lead">Screening tools are quick, office-based tests used to detect potential cognitive impairment. A positive screen should be followed by comprehensive neuropsychological evaluation — screening alone is not a diagnosis.</p>
+    <div class="screening-grid">
+      <div class="screening-card scroll-reveal">
+        <h3>Mini-Cog</h3>
+        <div class="sub">3 minutes</div>
+        <p>A brief, widely-used screen combining a 3-item word recall and a clock-drawing test. Designed for primary care settings. Sensitive for detecting dementia but limited in detecting mild cognitive impairment. Available in multiple languages.</p>
+      </div>
+      <div class="screening-card scroll-reveal">
+        <h3>MoCA</h3>
+        <div class="sub">Montreal Cognitive Assessment — 10 minutes</div>
+        <p>More sensitive than the MMSE for detecting mild cognitive impairment. Assesses attention, concentration, executive functions, memory, language, visuoconstructional skills, and orientation. Score of 26+ out of 30 is considered normal.</p>
+      </div>
+      <div class="screening-card scroll-reveal">
+        <h3>MMSE</h3>
+        <div class="sub">Mini-Mental State Examination — 10 minutes</div>
+        <p>One of the most widely used cognitive screening tools. Assesses orientation, registration, attention, recall, language, and visuospatial ability. Scores range from 0–30; below 24 suggests possible impairment. May miss early or mild cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="cream">
+  <div class="container-sm">
+    <span class="section-eyebrow" style="color:var(--diagnosis);">Common Questions</span>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    <div class="faq-stack">
+      <div class="faq-item"><div class="faq-q">Do I need to see a specialist to get a dementia diagnosis?</div><div class="faq-a"><p>Your primary care physician can perform initial screening and rule out other causes. However, a definitive diagnosis — especially for less common dementias or atypical presentations — typically requires evaluation by a neurologist, geriatrician, or neuropsychologist. If anti-amyloid therapy is being considered, specialist involvement is essential.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Is normal aging the same as dementia?</div><div class="faq-a"><p>No. Normal age-related changes include occasionally forgetting a name but remembering it later, making the occasional error when managing finances, and needing a bit more time to learn new things. Dementia involves significant, progressive changes that interfere with daily life — not occasional lapses that correct themselves.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is Mild Cognitive Impairment (MCI)?</div><div class="faq-a"><p>MCI is an intermediate stage between normal cognitive aging and dementia. People with MCI have noticeable cognitive changes that go beyond normal aging but don't yet significantly interfere with daily life. About 10–15% of people with MCI progress to dementia each year, though some remain stable or even improve. MCI is now recognized as an important intervention window for emerging disease-modifying therapies.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Can a blood test diagnose Alzheimer's?</div><div class="faq-a"><p>Yes — increasingly. Blood tests measuring plasma phospho-tau 217 (p-tau217) and amyloid beta ratios now show high accuracy (90%+) for detecting Alzheimer's-related brain changes. The FDA cleared the first blood-based Alzheimer's diagnostic (Lumipulse) in 2024. These tests are becoming more widely available through neurologists and memory clinics but are not yet standard in routine primary care.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How early can Alzheimer's be detected?</div><div class="faq-a"><p>Alzheimer's brain changes begin 15–20 years before symptoms appear. With biomarker testing (PET scans or blood tests for amyloid/tau), it is now possible to detect these changes in the preclinical stage. Early detection opens the window for disease-modifying therapies like lecanemab and donanemab, which are most effective before significant neuronal damage has occurred.</p></div></div>
+    </div>
+    <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="treatment.html" class="btn btn-navy">Next: Treatment →</a>
+      <a href="contact.html" class="btn btn-teal">Find a Specialist</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

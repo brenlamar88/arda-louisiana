@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – ADRD Louisiana</title>
+<meta name="description" content="About the Alzheimer's and Related Dementia Association of Louisiana — our mission, our team, and our commitment to Louisiana communities.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.mission-card{text-align:center;padding:2.5rem 1.75rem;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
+.mission-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.mission-icon{font-size:2.5rem;margin-bottom:1rem;}
+.mission-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
+.mission-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:2.5rem;}
+.team-card{background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);text-align:center;}
+.team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+.team-card h4{font-size:.98rem;font-weight:600;color:var(--navy);margin-bottom:.2rem;}
+.team-card .title{font-size:.8rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem;}
+.team-card p{font-size:.84rem;color:var(--text-mid);line-height:1.6;}
+.pillar-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;}
+.ps-item{padding:2.5rem;text-align:center;}
+.ps-item:nth-child(1){background:rgba(42,125,111,.1);}
+.ps-item:nth-child(2){background:rgba(26,90,138,.1);}
+.ps-item:nth-child(3){background:rgba(122,48,96,.1);}
+.ps-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;line-height:1;margin-bottom:.5rem;}
+.ps-item:nth-child(1) .ps-num{color:var(--prevention);}
+.ps-item:nth-child(2) .ps-num{color:var(--diagnosis);}
+.ps-item:nth-child(3) .ps-num{color:var(--treatment);}
+.ps-item h4{font-weight:600;font-size:.95rem;color:var(--navy);margin-bottom:.35rem;}
+.ps-item p{font-size:.84rem;color:var(--text-mid);line-height:1.55;}
+@media(max-width:768px){.mission-grid,.team-grid{grid-template-columns:1fr;}.pillar-summary{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html">Prevention</a></li>
+      <li><a href="diagnosis.html">Diagnosis</a></li>
+      <li><a href="treatment.html">Treatment</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="section-eyebrow">About ADRD Louisiana</span>
+    <h1>Our Mission — <em>Advancing Care<br>Across Louisiana</em></h1>
+    <p>ADRD Louisiana was founded to address the growing burden of Alzheimer's disease and related dementias in our state — through education, advocacy, research, and compassionate support for patients and families.</p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow">Who We Are</span>
+    <h2 class="section-title">A Louisiana Organization <em>Built for Louisiana</em></h2>
+    <p class="section-lead">Louisiana has one of the highest Alzheimer's prevalence rates in the United States — 12.4% — driven by high rates of vascular disease, diabetes, and health disparities across our communities. ADRD Louisiana was created to meet this challenge with specialized, locally-focused expertise.</p>
+    <div class="mission-grid">
+      <div class="mission-card scroll-reveal">
+        <div class="mission-icon">📚</div>
+        <h3>Education</h3>
+        <p>We provide evidence-based public education on dementia prevention, recognition, and care — through community events, online resources, and partnerships with healthcare providers across Louisiana.</p>
+      </div>
+      <div class="mission-card scroll-reveal">
+        <div class="mission-icon">🤝</div>
+        <h3>Support</h3>
+        <p>We connect patients, families, and caregivers with the resources, specialists, and support communities they need — navigating a healthcare system that can be difficult to navigate alone.</p>
+      </div>
+      <div class="mission-card scroll-reveal">
+        <div class="mission-icon">🔬</div>
+        <h3>Research</h3>
+        <p>We advance clinical research and advocate for Louisiana's participation in national trials. Early detection and disease-modifying therapies represent a transformative opportunity for our patients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="cream">
+  <div class="container">
+    <span class="section-eyebrow">Our Framework</span>
+    <h2 class="section-title">The Three-Pillar <em>Approach</em></h2>
+    <p class="section-lead">Our clinical framework, developed in collaboration with leading neurologists and dementia specialists, organizes our work around three interconnected pillars — reflecting the full continuum of dementia care.</p>
+    <div class="pillar-summary">
+      <div class="ps-item scroll-reveal">
+        <div class="ps-num">01</div>
+        <h4>Prevention</h4>
+        <p>Up to 40% of dementia cases are potentially preventable. We focus on modifiable risk factors, lifestyle interventions, and public health education — with special attention to Louisiana's unique risk profile.</p>
+      </div>
+      <div class="ps-item scroll-reveal">
+        <div class="ps-num">02</div>
+        <h4>Diagnosis</h4>
+        <p>Earlier diagnosis equals more options. We promote cognitive screening, specialist referrals, and access to biomarker-based diagnostics that can identify Alzheimer's years before symptoms appear.</p>
+      </div>
+      <div class="ps-item scroll-reveal">
+        <div class="ps-num">03</div>
+        <h4>Treatment</h4>
+        <p>The treatment landscape is changing rapidly. We help patients and families understand and access the full spectrum — from symptomatic care to FDA-approved disease-modifying therapies and clinical trials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow">Leadership</span>
+    <h2 class="section-title">Our <em>Team</em></h2>
+    <p class="section-lead">ADRD Louisiana brings together clinical expertise, public health leadership, and community advocacy to serve Louisiana's patients and families.</p>
+    <div class="team-grid">
+      <div class="team-card scroll-reveal">
+        <div class="team-avatar">F</div>
+        <h4>Dr. Ann Foundas</h4>
+        <div class="title">Medical Director</div>
+        <p>Board-certified neurologist and leading expert in cognitive neurology, language disorders, and dementia. Brings decades of clinical and research experience to ADRD Louisiana's medical leadership.</p>
+      </div>
+      <div class="team-card scroll-reveal">
+        <div class="team-avatar">+</div>
+        <h4>Clinical Advisory Board</h4>
+        <div class="title">Neurology · Geriatrics · Psychiatry</div>
+        <p>Our clinical advisors include specialists from Louisiana's leading academic medical centers, ensuring that all educational content and clinical guidance reflects the current state of evidence-based practice.</p>
+      </div>
+      <div class="team-card scroll-reveal">
+        <div class="team-avatar">LA</div>
+        <h4>Community Partners</h4>
+        <div class="title">Across Louisiana</div>
+        <p>We partner with the Alzheimer's Association Louisiana Chapter, Area Agencies on Aging, LSUHSC, Tulane, and community organizations across all Louisiana parishes to extend our reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOUISIANA CONTEXT -->
+<section class="dark">
+  <div class="container two-col">
+    <div>
+      <span class="section-eyebrow">Why Louisiana</span>
+      <h2 class="section-title">Louisiana's Unique <em>Dementia Challenge</em></h2>
+      <p class="section-lead">Louisiana's high rates of cardiovascular disease, diabetes, obesity, and health disparities across racial and economic lines create an outsized dementia burden that requires a locally-focused response.</p>
+      <a href="contact.html" class="btn btn-gold" style="margin-top:.5rem;">Get Involved</a>
+    </div>
+    <div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:1.25rem;margin-top:.5rem;">
+        <li style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📊</div>
+          <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">12.4% Prevalence Rate</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Louisiana ranks among the top five states nationally for Alzheimer's prevalence — driven by an aging population and high vascular risk factors.</p></div>
+        </li>
+        <li style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🌾</div>
+          <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">Rural Access Gaps</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Many Louisiana parishes lack access to neurologists or memory specialists. Telehealth and community-based programs are critical to bridging this gap.</p></div>
+        </li>
+        <li style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✊</div>
+          <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">Health Disparities</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Black Americans in Louisiana face twice the dementia risk of white Americans, driven by higher rates of hypertension, diabetes, and reduced healthcare access. Addressing these disparities is a core focus.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="teal" style="text-align:center;">
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--white);margin-bottom:1rem;">Join Our Effort</h2>
+    <p style="color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 2rem;font-size:1rem;line-height:1.7;">Whether you're a patient, family member, clinician, or community partner — there's a place for you at ADRD Louisiana.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="resources.html" class="btn btn-outline-white">Find Resources</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

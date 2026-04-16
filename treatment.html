@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treatment – ADRD Louisiana</title>
+<meta name="description" content="Explore dementia treatment options including symptomatic medications, disease-modifying anti-amyloid therapies, dual therapy, and clinical trials available in Louisiana.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.treatment-hero-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.th-card{background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);border-top:4px solid var(--treatment);transition:transform .2s,box-shadow .2s;}
+.th-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.th-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
+.th-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.drug-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
+.drug-card{background:var(--cream);border-radius:var(--radius);padding:2rem;position:relative;overflow:hidden;}
+.drug-card.approved{border:2px solid var(--teal);}
+.drug-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;}
+.drug-card .brand{font-size:.78rem;color:var(--text-light);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;}
+.drug-card p{font-size:.87rem;color:var(--text-mid);line-height:1.65;margin-bottom:.75rem;}
+.fda-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:2rem;background:rgba(42,125,111,.12);color:var(--teal);margin-bottom:.75rem;}
+.trial-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:2.5rem;}
+.trial-item{background:var(--white);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;}
+.trial-phase{width:54px;height:54px;background:var(--navy);color:var(--white);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;flex-shrink:0;}
+.trial-phase span:first-child{font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}
+.trial-phase span:last-child{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;line-height:1;}
+.trial-body h4{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;}
+.trial-body p{font-size:.86rem;color:var(--text-mid);line-height:1.6;}
+.sympto-table{width:100%;border-collapse:collapse;margin-top:2rem;}
+.sympto-table th{background:var(--navy);color:var(--white);padding:.85rem 1rem;text-align:left;font-size:.8rem;font-weight:600;letter-spacing:.05em;}
+.sympto-table td{padding:.85rem 1rem;border-bottom:1px solid var(--cream-dark);font-size:.87rem;color:var(--text-mid);vertical-align:top;}
+.sympto-table tr:hover td{background:var(--cream);}
+.sympto-table td:first-child{font-weight:600;color:var(--navy);}
+.care-goals{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.cg-card{text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);}
+.cg-icon{font-size:2rem;margin-bottom:.75rem;}
+.cg-card h4{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.5rem;}
+.cg-card p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6;}
+@media(max-width:768px){.treatment-hero-cards,.drug-grid,.care-goals{grid-template-columns:1fr;}.trial-item{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html">Prevention</a></li>
+      <li><a href="diagnosis.html">Diagnosis</a></li>
+      <li><a href="treatment.html" class="active">Treatment</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#2a1535,#1a2744);">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse 60% 70% at 80% 40%,rgba(122,48,96,.28) 0%,transparent 60%);"></div>
+  <div class="container page-hero-content">
+    <span class="section-eyebrow" style="color:var(--gold-light);">Pillar Three</span>
+    <h1>Treatment — <em>Options for<br>Every Stage</em></h1>
+    <p>From early lifestyle interventions to FDA-approved disease-modifying therapies and cutting-edge clinical trials, the treatment landscape for Alzheimer's and dementia is evolving rapidly.</p>
+  </div>
+</div>
+
+<!-- OVERVIEW CARDS -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--treatment);">Treatment Categories</span>
+    <h2 class="section-title">Three Approaches to <em>Dementia Treatment</em></h2>
+    <p class="section-lead">Treatment strategy depends on the type and stage of dementia, individual health factors, and personal goals of care. In many cases, a combination of approaches offers the greatest benefit.</p>
+    <div class="treatment-hero-cards">
+      <div class="th-card scroll-reveal">
+        <h3>🎯 Treat to Prevent</h3>
+        <p>Intervening in at-risk individuals before symptoms appear. As biomarker testing improves, identifying people in preclinical Alzheimer's stages allows treatment to begin when the brain still has maximum capacity to benefit. This is the frontier of modern Alzheimer's care.</p>
+      </div>
+      <div class="th-card scroll-reveal">
+        <h3>💊 Symptomatic Treatment</h3>
+        <p>Medications and non-pharmacological approaches that manage symptoms — memory, mood, behavior, and function — without altering the underlying disease process. These remain a cornerstone of care at all stages.</p>
+      </div>
+      <div class="th-card scroll-reveal">
+        <h3>🔬 Disease-Modifying Therapy</h3>
+        <p>A new class of treatments that target the underlying biology of Alzheimer's — removing amyloid plaques or targeting tau. Two FDA-approved drugs now available, with more in the pipeline. Most effective at the earliest stages of disease.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOMATIC MEDS -->
+<section class="cream">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--treatment);">Symptomatic Treatment</span>
+    <h2 class="section-title">Managing <em>Symptoms</em></h2>
+    <p class="section-lead">Symptomatic medications improve quality of life and functional ability. They do not slow disease progression but can make a meaningful difference for patients and caregivers.</p>
+    <div style="overflow-x:auto;">
+      <table class="sympto-table">
+        <thead><tr><th>Drug Class</th><th>Examples</th><th>Used For</th><th>Mechanism</th></tr></thead>
+        <tbody>
+          <tr><td>Cholinesterase Inhibitors</td><td>Donepezil (Aricept), Rivastigmine (Exelon), Galantamine (Razadyne)</td><td>Mild to moderate Alzheimer's, Lewy body dementia</td><td>Boost acetylcholine levels by blocking its breakdown — improves memory and communication between nerve cells</td></tr>
+          <tr><td>NMDA Receptor Antagonists</td><td>Memantine (Namenda)</td><td>Moderate to severe Alzheimer's</td><td>Regulates glutamate activity to protect nerve cells from overstimulation and damage</td></tr>
+          <tr><td>Combination Therapy</td><td>Donepezil + Memantine (Namzaric)</td><td>Moderate to severe Alzheimer's</td><td>Dual mechanism — combines benefits of both drug classes; evidence shows better outcomes than either alone</td></tr>
+          <tr><td>Antidepressants</td><td>SSRIs (citalopram, sertraline)</td><td>Depression &amp; anxiety in dementia</td><td>Modulate serotonin to reduce behavioral and psychological symptoms</td></tr>
+          <tr><td>Antipsychotics (off-label)</td><td>Quetiapine, risperidone</td><td>Severe agitation, hallucinations</td><td>Used cautiously; associated with increased stroke risk in elderly — reserved for when benefits outweigh risks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DISEASE MODIFYING DRUGS -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow" style="color:var(--treatment);">Disease-Modifying Therapy</span>
+    <h2 class="section-title">Anti-Amyloid <em>Therapies</em></h2>
+    <p class="section-lead">For the first time in history, we have FDA-approved medications that change the underlying biology of Alzheimer's disease by targeting and removing amyloid-beta plaques from the brain.</p>
+    <div class="drug-grid">
+      <div class="drug-card approved scroll-reveal">
+        <div class="fda-badge">✓ FDA Approved — July 2023</div>
+        <h3>Lecanemab</h3>
+        <div class="brand">Brand name: Leqembi® — Eisai / Biogen</div>
+        <p>A monoclonal antibody that binds to and removes soluble amyloid-beta protofibrils from the brain. In Phase 3 trials (CLARITY AD), lecanemab slowed clinical decline by approximately <strong>27%</strong> in patients with early Alzheimer's.</p>
+        <p><strong>Who qualifies:</strong> Adults with confirmed MCI or mild dementia due to Alzheimer's with biomarker evidence of elevated amyloid. <strong>Not</strong> appropriate for moderate or severe stages.</p>
+        <p><strong>Administration:</strong> IV infusion every two weeks. Requires amyloid confirmation via PET scan or CSF testing. Regular MRI monitoring for ARIA (brain swelling/bleeding).</p>
+      </div>
+      <div class="drug-card approved scroll-reveal">
+        <div class="fda-badge">✓ FDA Approved — July 2024</div>
+        <h3>Donanemab</h3>
+        <div class="brand">Brand name: Kisunla™ — Eli Lilly</div>
+        <p>Targets and removes amyloid plaques, with a unique dosing protocol that allows discontinuation once plaque clearance is confirmed. The TRAILBLAZER-ALZ 2 trial showed a <strong>35%</strong> slowing of progression in those with low-to-medium tau burden.</p>
+        <p><strong>Who qualifies:</strong> Adults with symptomatic early Alzheimer's and biomarker-confirmed amyloid and tau pathology. Tau level may influence expected benefit.</p>
+        <p><strong>Administration:</strong> IV infusion every four weeks. Treatment may end upon amyloid clearance, confirmed by PET. Requires monitoring for ARIA side effects.</p>
+      </div>
+      <div class="drug-card scroll-reveal">
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:2rem;background:rgba(122,48,96,.1);color:var(--treatment);margin-bottom:.75rem;display:inline-block;">In Development</div>
+        <h3>Tau-Targeting Therapies</h3>
+        <div class="brand">Multiple candidates in Phase 2/3 trials</div>
+        <p>The next frontier. While amyloid therapies target one hallmark of Alzheimer's, tau tangles are more closely correlated with neurodegeneration and cognitive decline. Anti-tau immunotherapies, tau aggregation inhibitors, and tau PET imaging biomarkers are all under active investigation.</p>
+        <p>Combination amyloid + tau therapy ("dual therapy") is a major focus of current research, with the hypothesis that targeting both pathologies simultaneously will yield superior outcomes.</p>
+      </div>
+      <div class="drug-card scroll-reveal">
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:2rem;background:rgba(122,48,96,.1);color:var(--treatment);margin-bottom:.75rem;display:inline-block;">Discontinued 2024</div>
+        <h3>Aducanumab (Aduhelm®)</h3>
+        <div class="brand">Biogen — First approved 2021</div>
+        <p>The first disease-modifying Alzheimer's drug to receive FDA approval (2021), aducanumab was discontinued in 2024 when Biogen opted to prioritize production of Leqembi. While it demonstrated amyloid clearance, clinical benefit remained contested. Its approval nonetheless opened the regulatory pathway for lecanemab and donanemab.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL TRIALS -->
+<section class="dark">
+  <div class="container">
+    <span class="section-eyebrow">Clinical Research</span>
+    <h2 class="section-title">Clinical Trials &amp; <em>Innovation in Louisiana</em></h2>
+    <p class="section-lead">Participating in a clinical trial gives patients access to the most advanced therapies before they reach the general market — and contributes to the science that will help future generations.</p>
+    <div class="trial-list">
+      <div class="trial-item scroll-reveal">
+        <div class="trial-phase"><span>Phase</span><span>3</span></div>
+        <div class="trial-body"><h4>Generation Program — Genentech / AC Immune</h4><p>Targeting cognitively unimpaired adults with APOE-e4 genetic risk. Investigating crenezumab for primary prevention of Alzheimer's in at-risk individuals. Represents the "Treat to Prevent" frontier. Contact ADRD Louisiana to check current enrollment status at Louisiana sites.</p></div>
+      </div>
+      <div class="trial-item scroll-reveal">
+        <div class="trial-phase"><span>Phase</span><span>3</span></div>
+        <div class="trial-body"><h4>AHEAD 3-45 — Eisai / Alzheimer's Clinical Trials Consortium</h4><p>A landmark primary prevention trial testing lecanemab in cognitively normal individuals with elevated amyloid levels. Aims to demonstrate whether anti-amyloid therapy can prevent the onset of cognitive symptoms entirely.</p></div>
+      </div>
+      <div class="trial-item scroll-reveal">
+        <div class="trial-phase"><span>Phase</span><span>2</span></div>
+        <div class="trial-body"><h4>Anti-Tau Combination Studies</h4><p>Multiple Phase 2 trials combining amyloid-clearing agents with tau-targeting therapies. Louisiana sites may participate — ask your neurologist about referral to academic medical centers with active dementia research programs, including LSUHSC and Tulane.</p></div>
+      </div>
+      <div class="trial-item scroll-reveal">
+        <div class="trial-phase"><span>Any</span><span>↗</span></div>
+        <div class="trial-body"><h4>ClinicalTrials.gov — Search Louisiana Sites</h4><p>The official U.S. registry of all clinical trials. Search for "Alzheimer's" and filter by your city or zip code to find studies currently enrolling in Louisiana. ADRD Louisiana can help you understand eligibility criteria and connect with research coordinators.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS OF CARE -->
+<section class="dark" style="padding-top:0;padding-bottom:5rem;">
+  <div class="container">
+    <span class="section-eyebrow">Holistic Care</span>
+    <h2 class="section-title">Goals of <em>Comprehensive Care</em></h2>
+    <div class="care-goals">
+      <div class="cg-card scroll-reveal"><div class="cg-icon">🧘</div><h4>Quality of Life</h4><p>Maintaining dignity, purpose, and enjoyment of daily life throughout the disease course remains the primary goal of care at every stage.</p></div>
+      <div class="cg-card scroll-reveal"><div class="cg-icon">👨‍👩‍👧</div><h4>Caregiver Support</h4><p>Caregiver wellbeing directly impacts patient outcomes. Respite care, education, support groups, and counseling are essential components of a comprehensive care plan.</p></div>
+      <div class="cg-card scroll-reveal"><div class="cg-icon">📋</div><h4>Advance Planning</h4><p>Early-stage diagnosis provides an opportunity to document care preferences, designate healthcare proxies, and plan for future needs while the individual can meaningfully participate.</p></div>
+      <div class="cg-card scroll-reveal"><div class="cg-icon">🏠</div><h4>Aging in Place</h4><p>Most people with dementia prefer to remain in their homes. Safety assessments, home modifications, and in-home support services can extend independence significantly.</p></div>
+      <div class="cg-card scroll-reveal"><div class="cg-icon">🤝</div><h4>Community Connection</h4><p>Social engagement and community programs — including memory cafés, dementia-friendly activities, and peer support — reduce isolation and slow cognitive decline.</p></div>
+      <div class="cg-card scroll-reveal"><div class="cg-icon">🔄</div><h4>Coordinated Care</h4><p>Dementia care involves multiple providers. Effective care navigation — coordinating between primary care, neurology, psychiatry, social work, and community services — is critical and often challenging.</p></div>
+    </div>
+    <div style="margin-top:3rem;text-align:center;">
+      <a href="resources.html" class="btn btn-gold">Find Support Resources →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice. Consult a qualified physician before starting or stopping any medication.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

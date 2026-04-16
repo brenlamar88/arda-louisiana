@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention – ADRD Louisiana</title>
+<meta name="description" content="Learn about modifiable and non-modifiable risk factors for Alzheimer's and dementia, and what steps you can take to protect your brain health.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+.risk-card{background:var(--white);border-radius:var(--radius);padding:1.6rem;border-left:3px solid var(--prevention);box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s;}
+.risk-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.risk-card.non-mod{border-left-color:#999;}
+.risk-card-icon{font-size:1.5rem;margin-bottom:.5rem;}
+.risk-card h4{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.35rem;}
+.risk-card p{font-size:.82rem;color:var(--text-mid);line-height:1.6;}
+.risk-card .mod-tag{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2rem;margin-bottom:.5rem;display:inline-block;}
+.mod-tag.yes{background:rgba(42,125,111,.12);color:var(--prevention);}
+.mod-tag.no{background:rgba(153,153,153,.12);color:#777;}
+.lifestyle-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2.5rem;}
+.lifestyle-card{background:var(--cream);border-radius:var(--radius);padding:2rem;border-top:3px solid var(--prevention);}
+.lifestyle-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.75rem;}
+.lifestyle-card p{font-size:.9rem;color:var(--text-mid);line-height:1.7;}
+.lifestyle-card ul{margin-top:.75rem;list-style:none;display:flex;flex-direction:column;gap:.45rem;}
+.lifestyle-card ul li{font-size:.88rem;color:var(--text-mid);display:flex;gap:.6rem;align-items:flex-start;}
+.lifestyle-card ul li::before{content:'✓';color:var(--prevention);font-weight:700;flex-shrink:0;}
+.apoe-box{background:linear-gradient(135deg,var(--navy),#243358);color:var(--white);border-radius:var(--radius);padding:2.5rem;margin-top:2.5rem;}
+.apoe-box h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold-light);margin-bottom:1rem;}
+.apoe-box p{font-size:.93rem;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:.75rem;}
+.steps-list{counter-reset:steps;list-style:none;display:flex;flex-direction:column;gap:1.25rem;margin-top:2rem;}
+.steps-list li{counter-increment:steps;display:flex;gap:1.25rem;align-items:flex-start;}
+.steps-list li::before{content:counter(steps);width:36px;height:36px;background:var(--prevention);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.steps-list li div h4{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;}
+.steps-list li div p{font-size:.88rem;color:var(--text-mid);line-height:1.6;}
+@media(max-width:768px){.risk-grid{grid-template-columns:1fr 1fr;}.lifestyle-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.risk-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html" class="active">Prevention</a></li>
+      <li><a href="diagnosis.html">Diagnosis</a></li>
+      <li><a href="treatment.html">Treatment</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="section-eyebrow">Pillar One</span>
+    <h1>Prevention — <em>Protecting<br>Your Brain Health</em></h1>
+    <p>While some risk factors can't be changed, up to 40% of dementia cases may be linked to modifiable lifestyle choices. Understanding your risk is the first step toward protecting your future.</p>
+  </div>
+</div>
+
+<!-- RISK FACTORS OVERVIEW -->
+<section class="white">
+  <div class="container">
+    <span class="section-eyebrow">Risk Factors</span>
+    <h2 class="section-title">What Increases Your <em>Risk?</em></h2>
+    <p class="section-lead">Dementia risk factors fall into two categories: those you can change and those you cannot. Knowing both helps you and your doctor build a personalized brain health strategy.</p>
+    <div class="risk-grid">
+      <div class="risk-card non-mod scroll-reveal">
+        <span class="mod-tag no">Non-Modifiable</span>
+        <div class="risk-card-icon">🎂</div>
+        <h4>Age</h4>
+        <p>The single greatest risk factor. Risk roughly doubles every five years after age 65. About 1 in 9 people age 65+ have Alzheimer's; nearly 1 in 3 people over 85 are affected.</p>
+      </div>
+      <div class="risk-card non-mod scroll-reveal">
+        <span class="mod-tag no">Non-Modifiable</span>
+        <div class="risk-card-icon">👨‍👩‍👧</div>
+        <h4>Family History</h4>
+        <p>Having a first-degree relative (parent or sibling) with Alzheimer's increases your risk. The more relatives affected, the higher the likelihood — suggesting both genetic and shared environmental factors.</p>
+      </div>
+      <div class="risk-card non-mod scroll-reveal">
+        <span class="mod-tag no">Non-Modifiable</span>
+        <div class="risk-card-icon">🧬</div>
+        <h4>Genetics &amp; APOE</h4>
+        <p>The APOE-e4 gene variant is the most significant genetic risk factor for late-onset Alzheimer's. Inheriting one copy raises risk 3–4×; two copies raises it 8–12×. However, carrying the gene does not guarantee disease.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🥗</div>
+        <h4>Diet &amp; Nutrition</h4>
+        <p>The MIND diet (Mediterranean-DASH Intervention for Neurodegenerative Delay) has been shown to reduce Alzheimer's risk by up to 53% in those who follow it rigorously. Leafy greens, berries, fish, and olive oil are key components.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🏃</div>
+        <h4>Physical Exercise</h4>
+        <p>Regular aerobic exercise — as little as 150 minutes per week — promotes neuroplasticity, increases hippocampal volume, and reduces neuroinflammation. Exercise is one of the most consistent protective factors identified in research.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">😴</div>
+        <h4>Sleep Quality</h4>
+        <p>During deep (slow-wave) sleep, the brain's glymphatic system clears amyloid-beta plaques. Chronic sleep deprivation or untreated sleep apnea significantly increases dementia risk. Aim for 7–9 hours of quality sleep nightly.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">❤️</div>
+        <h4>Heart Health &amp; Blood Pressure</h4>
+        <p>Hypertension in midlife is one of the strongest modifiable risk factors. High blood pressure damages blood vessels throughout the body, including those supplying the brain. Managing blood pressure can meaningfully reduce vascular dementia risk.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🩺</div>
+        <h4>Diabetes &amp; Insulin Resistance</h4>
+        <p>Type 2 diabetes roughly doubles dementia risk. Insulin resistance impairs the brain's ability to use glucose as fuel. Some researchers refer to Alzheimer's as "Type 3 Diabetes." Blood sugar management is critical for long-term brain health.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">⚖️</div>
+        <h4>Weight &amp; BMI</h4>
+        <p>Obesity in midlife (BMI &gt; 30) is associated with a 30–50% increased risk of developing dementia later in life. Elevated BMI often co-occurs with hypertension, diabetes, and high cholesterol — compounding risk.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🧠</div>
+        <h4>Depression &amp; Mental Health</h4>
+        <p>Depression is both a risk factor and an early symptom of dementia. Chronic stress elevates cortisol, which can damage the hippocampus — the brain's memory center. Treating depression and managing stress are protective strategies.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🚬</div>
+        <h4>Smoking &amp; Alcohol</h4>
+        <p>Smoking increases dementia risk by approximately 45% compared to non-smokers. Heavy alcohol use damages brain cells and is associated with alcohol-related dementia (Korsakoff syndrome). Cessation significantly reduces risk over time.</p>
+      </div>
+      <div class="risk-card scroll-reveal">
+        <span class="mod-tag yes">Modifiable</span>
+        <div class="risk-card-icon">🎓</div>
+        <h4>Cognitive Engagement</h4>
+        <p>Higher educational attainment and lifelong cognitive stimulation build "cognitive reserve" — a resilience against dementia symptoms. Reading, learning new skills, social engagement, and mentally challenging activities are all protective.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APOE GENETICS DEEP DIVE -->
+<section class="dark">
+  <div class="container">
+    <div class="two-col" style="align-items:center;">
+      <div>
+        <span class="section-eyebrow">Genetics</span>
+        <h2 class="section-title">Understanding <em>APOE &amp; Genetics</em></h2>
+        <p class="section-lead">Genetics play a role in Alzheimer's risk — but they are not destiny. Understanding your genetic profile can inform your prevention strategy.</p>
+        <a href="contact.html" class="btn btn-gold" style="margin-top:.5rem;">Speak with a Specialist</a>
+      </div>
+      <div class="apoe-box">
+        <h3>The APOE Gene</h3>
+        <p>The apolipoprotein E (APOE) gene comes in three variants: e2, e3, and e4. Everyone inherits two copies — one from each parent.</p>
+        <p><strong style="color:var(--gold-light);">APOE-e4:</strong> The highest-risk variant. One copy raises risk 3–4×; two copies raises it 8–12×. Present in ~25% of the general population and ~40% of people with Alzheimer's.</p>
+        <p><strong style="color:var(--teal-light);">APOE-e3:</strong> The most common variant. Considered neutral — neither increases nor decreases risk significantly.</p>
+        <p><strong style="color:var(--teal-light);">APOE-e2:</strong> The rarest variant. Associated with a slightly <em>reduced</em> risk of Alzheimer's disease.</p>
+        <p style="margin-top:1rem;font-size:.82rem;color:rgba(255,255,255,.45);">Genetic testing for APOE is available but is typically recommended only in the context of clinical care or research. Discuss options with your neurologist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE ACTIONS -->
+<section class="cream">
+  <div class="container">
+    <span class="section-eyebrow">Actionable Steps</span>
+    <h2 class="section-title">Your Brain Health <em>Action Plan</em></h2>
+    <p class="section-lead">The most powerful prevention strategies combine multiple lifestyle changes. Research shows that addressing several risk factors simultaneously has a compounding protective effect.</p>
+    <div class="lifestyle-grid">
+      <div class="lifestyle-card scroll-reveal">
+        <h3>🥗 The MIND Diet</h3>
+        <p>The MIND diet specifically targets brain health and has the strongest evidence base for dementia prevention of any dietary pattern.</p>
+        <ul>
+          <li>Leafy green vegetables (at least 6 servings/week)</li>
+          <li>Berries — especially blueberries &amp; strawberries (2+ servings/week)</li>
+          <li>Nuts (5+ servings/week)</li>
+          <li>Fish (at least 1 serving/week)</li>
+          <li>Olive oil as primary cooking fat</li>
+          <li>Limit red meat, butter, cheese, pastries, and fried food</li>
+        </ul>
+      </div>
+      <div class="lifestyle-card scroll-reveal">
+        <h3>🏃 Exercise Protocol</h3>
+        <p>Physical activity is among the most well-studied protective factors. Both aerobic and resistance training show benefits.</p>
+        <ul>
+          <li>150 minutes of moderate aerobic exercise per week</li>
+          <li>2 days of strength/resistance training weekly</li>
+          <li>Balance and flexibility exercises reduce fall risk</li>
+          <li>Even brisk walking 30 minutes/day shows measurable benefit</li>
+          <li>Social exercise (group classes, walking partners) adds cognitive benefit</li>
+        </ul>
+      </div>
+      <div class="lifestyle-card scroll-reveal">
+        <h3>😴 Sleep Hygiene</h3>
+        <p>Quality sleep allows the brain to clear toxic waste products linked to Alzheimer's. Poor sleep is a reversible risk factor.</p>
+        <ul>
+          <li>Aim for 7–9 hours of uninterrupted sleep nightly</li>
+          <li>Maintain a consistent sleep/wake schedule, even on weekends</li>
+          <li>Get screened for sleep apnea — treatment is highly protective</li>
+          <li>Avoid screens 1 hour before bed</li>
+          <li>Keep your bedroom cool, dark, and quiet</li>
+        </ul>
+      </div>
+      <div class="lifestyle-card scroll-reveal">
+        <h3>❤️ Cardiovascular Health</h3>
+        <p>"What's good for the heart is good for the brain." Vascular risk factors are among the most modifiable contributors to dementia.</p>
+        <ul>
+          <li>Monitor and control blood pressure (target &lt;130/80 mmHg)</li>
+          <li>Manage cholesterol with diet, exercise, or medication as needed</li>
+          <li>Screen for and treat diabetes and pre-diabetes</li>
+          <li>Quit smoking — risk begins decreasing immediately</li>
+          <li>Limit alcohol to &lt;14 units per week</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="white">
+  <div class="container-sm">
+    <span class="section-eyebrow">Getting Started</span>
+    <h2 class="section-title">Steps to <em>Take Today</em></h2>
+    <ol class="steps-list">
+      <li><div><h4>Talk to your primary care provider</h4><p>Share your family history and ask about a cognitive baseline assessment. Even if you feel fine, establishing a baseline makes future changes detectable earlier.</p></div></li>
+      <li><div><h4>Know your numbers</h4><p>Get your blood pressure, cholesterol, blood glucose (HbA1c), and BMI checked. These are the cardiovascular risk factors most directly linked to modifiable dementia risk.</p></div></li>
+      <li><div><h4>Consider genetic counseling</h4><p>If you have a strong family history, a neurologist or genetic counselor can help you understand whether APOE testing is appropriate for your situation.</p></div></li>
+      <li><div><h4>Start the MIND diet</h4><p>You don't need a perfect score to benefit. Studies show even moderate adherence to the MIND diet reduces risk. Start by adding one serving of leafy greens and a handful of berries each day.</p></div></li>
+      <li><div><h4>Move every day</h4><p>A 30-minute walk is enough to make a measurable difference. Find activities you enjoy — consistency matters more than intensity at the start.</p></div></li>
+      <li><div><h4>Connect with ADRD Louisiana</h4><p>We can connect you with local neurologists, cognitive screening programs, and support groups throughout Louisiana.</p></div></li>
+    </ol>
+    <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="diagnosis.html" class="btn btn-teal">Next: Diagnosis →</a>
+      <a href="contact.html" class="btn btn-navy">Speak with a Specialist</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
