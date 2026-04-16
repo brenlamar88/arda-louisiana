@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Providers – ADRD Louisiana</title>
+<meta name="description" content="Find neurologists, memory clinics, and dementia support resources near you across Louisiana.">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+/* ── PAGE LAYOUT ── */
+.providers-layout{display:grid;grid-template-columns:360px 1fr;height:calc(100vh - 68px);margin-top:68px;overflow:hidden;}
+
+/* ── SIDEBAR ── */
+.sidebar{background:var(--white);overflow-y:auto;display:flex;flex-direction:column;border-right:1px solid var(--cream-dark);position:relative;z-index:10;}
+.sidebar-header{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--cream-dark);position:sticky;top:0;background:var(--white);z-index:5;}
+.sidebar-header h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);margin-bottom:.25rem;}
+.sidebar-header p{font-size:.82rem;color:var(--text-light);line-height:1.4;}
+
+/* search + filters */
+.search-wrap{position:relative;margin-top:.85rem;}
+.search-wrap input{width:100%;padding:.65rem 1rem .65rem 2.5rem;border:1.5px solid var(--cream-dark);border-radius:8px;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--text-dark);outline:none;transition:border-color .2s;}
+.search-wrap input:focus{border-color:var(--teal);}
+.search-icon{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none;color:var(--text-light);}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem;}
+.filter-btn{padding:.3rem .75rem;border-radius:2rem;border:1.5px solid var(--cream-dark);background:transparent;font-size:.75rem;font-weight:600;cursor:pointer;color:var(--text-mid);transition:all .2s;font-family:'DM Sans',sans-serif;}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
+.filter-btn[data-type="neurologist"].active{background:var(--diagnosis);border-color:var(--diagnosis);}
+.filter-btn[data-type="memory-clinic"].active{background:var(--prevention);border-color:var(--prevention);}
+.filter-btn[data-type="support-group"].active{background:var(--treatment);border-color:var(--treatment);}
+.filter-btn[data-type="research"].active{background:#8b5e3c;border-color:#8b5e3c;}
+
+/* result count */
+.result-count{padding:.6rem 1.5rem;font-size:.78rem;color:var(--text-light);background:var(--cream);border-bottom:1px solid var(--cream-dark);}
+.result-count strong{color:var(--navy);}
+
+/* provider cards */
+.provider-list{flex:1;padding:.5rem 0;}
+.provider-card{padding:1.1rem 1.5rem;border-bottom:1px solid var(--cream-dark);cursor:pointer;transition:background .15s;position:relative;}
+.provider-card:hover,.provider-card.active{background:var(--cream);}
+.provider-card.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.35rem;}
+.pc-name{font-size:.92rem;font-weight:600;color:var(--navy);line-height:1.3;}
+.pc-type{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2rem;white-space:nowrap;flex-shrink:0;}
+.type-neurologist{background:rgba(26,90,138,.1);color:var(--diagnosis);}
+.type-memory-clinic{background:rgba(42,125,111,.1);color:var(--prevention);}
+.type-support-group{background:rgba(122,48,96,.1);color:var(--treatment);}
+.type-research{background:rgba(139,94,60,.1);color:#8b5e3c;}
+.pc-org{font-size:.8rem;color:var(--text-mid);margin-bottom:.25rem;}
+.pc-addr{font-size:.78rem;color:var(--text-light);display:flex;align-items:flex-start;gap:.3rem;}
+.pc-addr::before{content:'📍';font-size:.7rem;margin-top:.05rem;}
+.pc-meta{display:flex;gap:.75rem;margin-top:.5rem;flex-wrap:wrap;}
+.pc-chip{font-size:.72rem;color:var(--text-mid);background:var(--cream);padding:.18rem .5rem;border-radius:3px;}
+.no-results{padding:3rem 1.5rem;text-align:center;color:var(--text-light);font-size:.9rem;}
+
+/* ── MAP ── */
+#map{height:100%;width:100%;z-index:1;}
+
+/* Custom popup */
+.leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.15);border:none;padding:0;overflow:hidden;}
+.leaflet-popup-content{margin:0;width:280px !important;}
+.popup-inner{padding:1.1rem 1.25rem;}
+.popup-type{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem;display:inline-block;}
+.popup-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:.15rem;line-height:1.25;}
+.popup-org{font-size:.82rem;color:var(--text-mid);margin-bottom:.6rem;}
+.popup-divider{height:1px;background:var(--cream-dark);margin:.6rem 0;}
+.popup-row{display:flex;gap:.5rem;align-items:flex-start;font-size:.8rem;color:var(--text-mid);margin-bottom:.35rem;}
+.popup-row span:first-child{flex-shrink:0;font-size:.85rem;}
+.popup-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem;}
+.popup-tag{font-size:.7rem;background:var(--cream);color:var(--text-mid);padding:.18rem .5rem;border-radius:3px;}
+.popup-actions{padding:.75rem 1.25rem;background:var(--cream);display:flex;gap:.5rem;}
+.popup-btn{flex:1;padding:.45rem .5rem;border-radius:5px;font-size:.78rem;font-weight:600;text-align:center;text-decoration:none;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.popup-btn.primary{background:var(--teal);color:var(--white);}
+.popup-btn.primary:hover{background:#1f6357;}
+.popup-btn.secondary{background:var(--white);color:var(--navy);border:1px solid var(--cream-dark);}
+.popup-btn.secondary:hover{background:var(--navy);color:var(--white);}
+
+/* Legend */
+.map-legend{position:absolute;bottom:28px;left:380px;z-index:400;background:var(--white);border-radius:10px;padding:.9rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,.12);min-width:170px;}
+.legend-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.6rem;}
+.legend-row{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--text-mid);margin-bottom:.35rem;}
+.legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;border:2px solid rgba(255,255,255,.7);}
+
+/* Stats bar */
+.map-stats{position:absolute;top:80px;right:12px;z-index:400;display:flex;flex-direction:column;gap:.5rem;}
+.map-stat-pill{background:var(--white);border-radius:8px;padding:.55rem .9rem;box-shadow:0 3px 12px rgba(0,0,0,.1);font-size:.78rem;color:var(--text-mid);white-space:nowrap;}
+.map-stat-pill strong{color:var(--navy);font-size:.92rem;display:block;}
+
+/* Mobile */
+@media(max-width:900px){
+  .providers-layout{grid-template-columns:1fr;height:auto;margin-top:68px;}
+  #map{height:50vh;}
+  .sidebar{height:50vh;overflow-y:auto;}
+  .map-legend{left:12px;bottom:calc(50vh + 8px);}
+  .map-stats{display:none;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
+    <ul class="nav-links">
+      <li><a href="prevention.html">Prevention</a></li>
+      <li><a href="diagnosis.html">Diagnosis</a></li>
+      <li><a href="treatment.html">Treatment</a></li>
+      <li><a href="providers.html" class="active">Find Providers</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="providers-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Find Providers</h2>
+      <p>Neurologists, memory clinics &amp; support across Louisiana</p>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by name, city, or parish…">
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="neurologist">Neurologist</button>
+        <button class="filter-btn" data-type="memory-clinic">Memory Clinic</button>
+        <button class="filter-btn" data-type="support-group">Support Group</button>
+        <button class="filter-btn" data-type="research">Research</button>
+      </div>
+    </div>
+    <div class="result-count" id="result-count"><strong>24</strong> providers found</div>
+    <div class="provider-list" id="provider-list"></div>
+  </div>
+
+  <!-- MAP -->
+  <div style="position:relative;">
+    <div id="map"></div>
+
+    <!-- Legend -->
+    <div class="map-legend">
+      <div class="legend-title">Provider Type</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#1a5a8a;"></div>Neurologist</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#2a7d6f;"></div>Memory Clinic</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#7a3060;"></div>Support Group</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#8b5e3c;"></div>Research Program</div>
+    </div>
+
+    <!-- Stats pills -->
+    <div class="map-stats">
+      <div class="map-stat-pill"><strong>64</strong>parishes served</div>
+      <div class="map-stat-pill"><strong>24</strong>listed providers</div>
+      <div class="map-stat-pill"><strong>800-272-3900</strong>24/7 Helpline</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── PROVIDER DATA ──
+const PROVIDERS = [
+  // NEW ORLEANS
+  {id:1,name:"Dr. Sarah Melancon",title:"MD, Behavioral Neurologist",org:"Tulane Neurosciences",type:"neurologist",address:"1415 Tulane Ave, New Orleans, LA 70112",city:"New Orleans",parish:"Orleans",phone:"(504) 988-5455",website:"#",lat:29.9537,lng:-90.0723,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","BlueCross"],specialties:["Alzheimer's Disease","Lewy Body Dementia","MCI"]},
+  {id:2,name:"LSUHSC Memory Disorders Center",title:"Comprehensive Memory Evaluation",org:"LSU Health New Orleans",type:"memory-clinic",address:"2020 Gravier St, New Orleans, LA 70112",city:"New Orleans",parish:"Orleans",phone:"(504) 568-4080",website:"#",lat:29.9545,lng:-90.0780,accepting:true,telehealth:false,insurance:["Medicare","Medicaid","Most Major"],specialties:["Full Neuropsychological Testing","Amyloid PET","CSF Biomarkers","Anti-Amyloid Therapy"]},
+  {id:3,name:"Tulane Memory & Aging Center",title:"Clinical Research & Care",org:"Tulane University Medical Center",type:"research",address:"1440 Canal St, New Orleans, LA 70112",city:"New Orleans",parish:"Orleans",phone:"(504) 988-7869",website:"#",lat:29.9502,lng:-90.0736,accepting:true,telehealth:true,insurance:["Medicare","Research Participants"],specialties:["Clinical Trials","APOE Testing","Biomarker Research","Anti-Amyloid Therapy"]},
+  {id:4,name:"NOLA Alzheimer's Support Circle",title:"Peer Support Group",org:"Alzheimer's Association LA Chapter",type:"support-group",address:"3434 Prytania St, New Orleans, LA 70115",city:"New Orleans",parish:"Orleans",phone:"(504) 832-0514",website:"#",lat:29.9288,lng:-90.0865,accepting:true,telehealth:true,insurance:["Free"],specialties:["Caregiver Support","Early-Stage Group","Spanish-Language Group"]},
+  {id:5,name:"Dr. James Thibodaux",title:"MD, Geriatric Neurologist",org:"Ochsner Neuroscience Institute",type:"neurologist",address:"1514 Jefferson Hwy, New Orleans, LA 70121",city:"Jefferson",parish:"Jefferson",phone:"(504) 842-4040",website:"#",lat:29.9552,lng:-90.1389,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","Ochsner Health Plan","BlueCross"],specialties:["Vascular Dementia","Alzheimer's Disease","Parkinson's Dementia"]},
+  {id:6,name:"Ochsner Memory Care Program",title:"Integrated Memory Care",org:"Ochsner Health System",type:"memory-clinic",address:"1514 Jefferson Hwy, New Orleans, LA 70121",city:"Jefferson",parish:"Jefferson",phone:"(504) 842-3460",website:"#",lat:29.9548,lng:-90.1395,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","Most Major"],specialties:["Leqembi Infusion","Multi-disciplinary Care","Caregiver Navigation"]},
+
+  // BATON ROUGE
+  {id:7,name:"Dr. Patricia Fontenot",title:"MD, Neurologist",org:"Our Lady of the Lake Neuroscience",type:"neurologist",address:"5000 Hennessy Blvd, Baton Rouge, LA 70808",city:"Baton Rouge",parish:"East Baton Rouge",phone:"(225) 765-6565",website:"#",lat:30.3768,lng:-91.1231,accepting:true,telehealth:true,insurance:["Medicare","BlueCross","Aetna","United"],specialties:["Alzheimer's Disease","Frontotemporal Dementia","MCI"]},
+  {id:8,name:"OLOL Cognitive Health Center",title:"Memory & Aging Specialty Clinic",org:"Our Lady of the Lake Health",type:"memory-clinic",address:"5000 Hennessy Blvd, Baton Rouge, LA 70808",city:"Baton Rouge",parish:"East Baton Rouge",phone:"(225) 765-8900",website:"#",lat:30.3772,lng:-91.1237,accepting:true,telehealth:false,insurance:["Medicare","Medicaid","Most Major"],specialties:["Neuropsychological Testing","PET Imaging","Care Coordination"]},
+  {id:9,name:"Baton Rouge Dementia Caregivers",title:"Monthly Support Meetings",org:"ADRD Louisiana",type:"support-group",address:"7777 Hennessy Blvd, Baton Rouge, LA 70808",city:"Baton Rouge",parish:"East Baton Rouge",phone:"(225) 926-6050",website:"#",lat:30.3810,lng:-91.1195,accepting:true,telehealth:true,insurance:["Free"],specialties:["Caregiver Support","Early Memory Loss Group","Virtual Option"]},
+  {id:10,name:"LSU Health Baton Rouge Neurology",title:"Outpatient Neurology Clinic",org:"LSU Health Baton Rouge",type:"neurologist",address:"8585 Picardy Ave, Baton Rouge, LA 70809",city:"Baton Rouge",parish:"East Baton Rouge",phone:"(225) 763-4000",website:"#",lat:30.3695,lng:-91.0842,accepting:true,telehealth:false,insurance:["Medicare","Medicaid","Most Major"],specialties:["Alzheimer's Disease","Vascular Dementia","Memory Assessment"]},
+
+  // SHREVEPORT
+  {id:11,name:"Dr. Marcus Guidry",title:"MD, PhD — Cognitive Neurologist",org:"Willis-Knighton Neuroscience",type:"neurologist",address:"2600 Kings Hwy, Shreveport, LA 71103",city:"Shreveport",parish:"Caddo",phone:"(318) 212-4567",website:"#",lat:32.4654,lng:-93.7963,accepting:true,telehealth:true,insurance:["Medicare","BlueCross","Humana","Aetna"],specialties:["Alzheimer's Disease","Lewy Body Dementia","Neuropsychiatric Symptoms"]},
+  {id:12,name:"LSU Health Shreveport Memory Clinic",title:"Academic Memory Center",org:"LSU Health Sciences Center Shreveport",type:"memory-clinic",address:"1501 Kings Hwy, Shreveport, LA 71103",city:"Shreveport",parish:"Caddo",phone:"(318) 675-5000",website:"#",lat:32.4712,lng:-93.7891,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","Most Major"],specialties:["Full Evaluation","Research Programs","Anti-Amyloid Eligibility Screening"]},
+  {id:13,name:"Shreveport Alzheimer's Support Group",title:"Weekly Caregiver Meeting",org:"Alzheimer's Association LA Chapter",type:"support-group",address:"755 Olive St, Shreveport, LA 71104",city:"Shreveport",parish:"Caddo",phone:"(318) 425-0962",website:"#",lat:32.5024,lng:-93.7544,accepting:true,telehealth:true,insurance:["Free"],specialties:["Family Caregiver Support","Loss & Grief Group"]},
+
+  // LAFAYETTE
+  {id:14,name:"Dr. Anne Broussard",title:"MD, Geriatrician & Memory Specialist",org:"Lafayette General Neurology",type:"neurologist",address:"1214 Coolidge Blvd, Lafayette, LA 70503",city:"Lafayette",parish:"Lafayette",phone:"(337) 289-8000",website:"#",lat:30.2241,lng:-92.0198,accepting:true,telehealth:true,insurance:["Medicare","BlueCross","Humana","UnitedHealth"],specialties:["Alzheimer's Disease","Geriatric Assessment","Caregiver Consultation"]},
+  {id:15,name:"Acadiana Memory & Aging Center",title:"Comprehensive Dementia Care",org:"Ochsner Lafayette General",type:"memory-clinic",address:"1214 Coolidge Blvd, Lafayette, LA 70503",city:"Lafayette",parish:"Lafayette",phone:"(337) 289-7600",website:"#",lat:30.2245,lng:-92.0202,accepting:true,telehealth:false,insurance:["Medicare","Medicaid","Most Major"],specialties:["Neuropsychological Testing","Medication Management","Telehealth Follow-up"]},
+  {id:16,name:"Cajun Country Memory Support",title:"Bilingual Support Group (EN/FR)",org:"ADRD Louisiana",type:"support-group",address:"600 Mudd Ave, Lafayette, LA 70501",city:"Lafayette",parish:"Lafayette",phone:"(337) 235-5437",website:"#",lat:30.2164,lng:-92.0253,accepting:true,telehealth:true,insurance:["Free"],specialties:["English/French Cajun Community","Early-Stage","Caregiver Respite Program"]},
+
+  // LAKE CHARLES
+  {id:17,name:"Dr. Robert Arceneaux",title:"MD, Neurologist",org:"Lake Charles Memorial Neurology",type:"neurologist",address:"1701 Oak Park Blvd, Lake Charles, LA 70601",city:"Lake Charles",parish:"Calcasieu",phone:"(337) 494-3100",website:"#",lat:30.2320,lng:-93.2174,accepting:true,telehealth:true,insurance:["Medicare","BlueCross","Aetna"],specialties:["Alzheimer's Disease","Vascular Dementia","Parkinson's Disease Dementia"]},
+  {id:18,name:"SWLA Memory Care Group",title:"Support Group",org:"Alzheimer's Association LA Chapter",type:"support-group",address:"524 Pujo St, Lake Charles, LA 70601",city:"Lake Charles",parish:"Calcasieu",phone:"(337) 562-8780",website:"#",lat:30.2268,lng:-93.2215,accepting:true,telehealth:true,insurance:["Free"],specialties:["Caregiver Support","Early Diagnosis Group"]},
+
+  // MONROE
+  {id:19,name:"Dr. Celeste Washington",title:"MD, Behavioral Neurologist",org:"St. Francis Medical Center Neurology",type:"neurologist",address:"309 Jackson St, Monroe, LA 71201",city:"Monroe",parish:"Ouachita",phone:"(318) 966-4000",website:"#",lat:32.5113,lng:-92.1193,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","BlueCross"],specialties:["Alzheimer's Disease","FTD","Neuropsychiatric Symptoms"]},
+  {id:20,name:"Northeast LA Memory Support",title:"Monthly Support Meeting",org:"ADRD Louisiana",type:"support-group",address:"4864 Jackson St, Monroe, LA 71202",city:"Monroe",parish:"Ouachita",phone:"(318) 329-4440",website:"#",lat:32.5187,lng:-92.0938,accepting:true,telehealth:true,insurance:["Free"],specialties:["Caregiver Support","Early-Stage Group","Rural Telehealth Access"]},
+
+  // ALEXANDRIA / CENTRAL LA
+  {id:21,name:"Dr. Henri Tureaud",title:"MD, Neurologist",org:"Christus St. Frances Cabrini Neurology",type:"neurologist",address:"3330 Masonic Dr, Alexandria, LA 71301",city:"Alexandria",parish:"Rapides",phone:"(318) 448-6760",website:"#",lat:31.3113,lng:-92.4453,accepting:true,telehealth:true,insurance:["Medicare","Medicaid","BlueCross","Humana"],specialties:["Alzheimer's Disease","Vascular Dementia","Rural Outreach"]},
+  {id:22,name:"Cenla Alzheimer's Alliance",title:"Support &amp; Education",org:"ADRD Louisiana",type:"support-group",address:"900 Murray St, Alexandria, LA 71301",city:"Alexandria",parish:"Rapides",phone:"(318) 442-5281",website:"#",lat:31.3056,lng:-92.4436,accepting:true,telehealth:true,insurance:["Free"],specialties:["Caregiver Support","Community Education"]},
+
+  // SLIDELL / NORTH SHORE
+  {id:23,name:"Dr. Yvonne Tran",title:"MD, Memory Specialist",org:"Ochsner North Shore Neurology",type:"neurologist",address:"100 Medical Center Dr, Slidell, LA 70461",city:"Slidell",parish:"St. Tammany",phone:"(985) 649-7070",website:"#",lat:30.2785,lng:-89.7812,accepting:true,telehealth:true,insurance:["Medicare","BlueCross","Ochsner Health Plan","UnitedHealth"],specialties:["Early-Onset Alzheimer's","MCI","Genetic Counseling Referrals"]},
+
+  // HOUMA / THIBODAUX
+  {id:24,name:"Dr. Pierre Lejeune",title:"MD, Geriatric Neurologist",org:"Thibodaux Regional Neurology",type:"neurologist",address:"602 N Acadia Rd, Thibodaux, LA 70301",city:"Thibodaux",parish:"Lafourche",phone:"(985) 447-5500",website:"#",lat:29.7952,lng:-90.8228,accepting:true,telehealth:false,insurance:["Medicare","BlueCross","Humana"],specialties:["Alzheimer's Disease","Bayou Region Outreach","Cajun French Accommodations"]},
+];
+
+// ── TYPE CONFIG ──
+const TYPE_CONFIG = {
+  'neurologist':    {label:'Neurologist',   color:'#1a5a8a', bg:'rgba(26,90,138,.1)'},
+  'memory-clinic':  {label:'Memory Clinic',  color:'#2a7d6f', bg:'rgba(42,125,111,.1)'},
+  'support-group':  {label:'Support Group',  color:'#7a3060', bg:'rgba(122,48,96,.1)'},
+  'research':       {label:'Research',       color:'#8b5e3c', bg:'rgba(139,94,60,.1)'},
+};
+
+// ── STATE ──
+let activeFilter = 'all';
+let searchQuery = '';
+let activeCardId = null;
+let markers = {};
+let map;
+
+// ── INIT MAP ──
+function initMap() {
+  map = L.map('map', {
+    center: [31.0, -91.8],
+    zoom: 7,
+    zoomControl: true,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  PROVIDERS.forEach(p => addMarker(p));
+}
+
+function makeIcon(type, isActive) {
+  const cfg = TYPE_CONFIG[type];
+  const size = isActive ? 18 : 14;
+  const border = isActive ? 3 : 2;
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:${size+border*2}px;height:${size+border*2}px;
+      background:${cfg.color};
+      border:${border}px solid white;
+      border-radius:50%;
+      box-shadow:0 2px 8px rgba(0,0,0,${isActive?'.45':'.28'});
+      transition:all .2s;
+      ${isActive?'transform:scale(1.3);':''}
+    "></div>`,
+    iconSize: [size+border*2, size+border*2],
+    iconAnchor: [(size+border*2)/2, (size+border*2)/2],
+  });
+}
+
+function addMarker(p) {
+  const cfg = TYPE_CONFIG[p.type];
+  const marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.type, false) });
+
+  const popupHtml = `
+    <div class="popup-inner">
+      <span class="popup-type" style="color:${cfg.color};background:${cfg.bg};padding:.18rem .55rem;border-radius:2rem;">${cfg.label}</span>
+      <div class="popup-name">${p.name}</div>
+      <div class="popup-org">${p.title} · ${p.org}</div>
+      <div class="popup-divider"></div>
+      <div class="popup-row"><span>📍</span><span>${p.address}</span></div>
+      <div class="popup-row"><span>📞</span><span>${p.phone}</span></div>
+      <div class="popup-row"><span>💻</span><span>Telehealth: ${p.telehealth?'<strong style="color:#2a7d6f">Available</strong>':'Not available'}</span></div>
+      <div class="popup-row"><span>✅</span><span>Accepting: ${p.accepting?'<strong style="color:#2a7d6f">New Patients</strong>':'Waitlist'}</span></div>
+      <div class="popup-tags">${p.specialties.slice(0,3).map(s=>`<span class="popup-tag">${s}</span>`).join('')}</div>
+    </div>
+    <div class="popup-actions">
+      <a href="tel:${p.phone.replace(/\D/g,'')}" class="popup-btn primary">Call Now</a>
+      <a href="contact.html" class="popup-btn secondary">Refer</a>
+    </div>
+  `;
+
+  marker.bindPopup(popupHtml, { maxWidth: 300, minWidth: 280 });
+
+  marker.on('click', () => {
+    setActiveCard(p.id);
+    marker.setIcon(makeIcon(p.type, true));
+  });
+
+  marker.on('popupclose', () => {
+    marker.setIcon(makeIcon(p.type, false));
+    if (activeCardId === p.id) activeCardId = null;
+    document.querySelectorAll('.provider-card').forEach(c => c.classList.remove('active'));
+  });
+
+  marker.addTo(map);
+  markers[p.id] = marker;
+}
+
+// ── SIDEBAR ──
+function renderList() {
+  const filtered = PROVIDERS.filter(p => {
+    const matchType = activeFilter === 'all' || p.type === activeFilter;
+    const q = searchQuery.toLowerCase();
+    const matchSearch = !q ||
+      p.name.toLowerCase().includes(q) ||
+      p.city.toLowerCase().includes(q) ||
+      p.parish.toLowerCase().includes(q) ||
+      p.org.toLowerCase().includes(q) ||
+      p.specialties.some(s => s.toLowerCase().includes(q));
+    return matchType && matchSearch;
+  });
+
+  document.getElementById('result-count').innerHTML =
+    `<strong>${filtered.length}</strong> provider${filtered.length !== 1 ? 's' : ''} found`;
+
+  const list = document.getElementById('provider-list');
+
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="no-results">No providers match your search.<br><br>Try broadening your search or call the 24/7 helpline:<br><strong>800-272-3900</strong></div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(p => {
+    const cfg = TYPE_CONFIG[p.type];
+    return `
+      <div class="provider-card ${activeCardId === p.id ? 'active' : ''}" data-id="${p.id}" onclick="selectProvider(${p.id})">
+        <div class="pc-top">
+          <div class="pc-name">${p.name}</div>
+          <span class="pc-type type-${p.type}">${cfg.label}</span>
+        </div>
+        <div class="pc-org">${p.org}</div>
+        <div class="pc-addr">${p.city}, ${p.parish} Parish</div>
+        <div class="pc-meta">
+          ${p.accepting ? '<span class="pc-chip">✓ Accepting Patients</span>' : '<span class="pc-chip">Waitlist</span>'}
+          ${p.telehealth ? '<span class="pc-chip">💻 Telehealth</span>' : ''}
+          ${p.insurance.includes('Free') ? '<span class="pc-chip">Free Service</span>' : ''}
+        </div>
+      </div>`;
+  }).join('');
+
+  // Show/hide markers based on filter
+  PROVIDERS.forEach(p => {
+    const visible = filtered.find(f => f.id === p.id);
+    if (markers[p.id]) {
+      if (visible) {
+        if (!map.hasLayer(markers[p.id])) map.addLayer(markers[p.id]);
+      } else {
+        if (map.hasLayer(markers[p.id])) map.removeLayer(markers[p.id]);
+      }
+    }
+  });
+}
+
+function selectProvider(id) {
+  setActiveCard(id);
+  const p = PROVIDERS.find(x => x.id === id);
+  if (!p) return;
+  map.setView([p.lat, p.lng], 13, { animate: true });
+  setTimeout(() => markers[id] && markers[id].openPopup(), 400);
+}
+
+function setActiveCard(id) {
+  activeCardId = id;
+  document.querySelectorAll('.provider-card').forEach(c => {
+    c.classList.toggle('active', parseInt(c.dataset.id) === id);
+  });
+  // Scroll card into view
+  const card = document.querySelector(`.provider-card[data-id="${id}"]`);
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ── EVENTS ──
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  renderList();
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.type;
+    renderList();
+  });
+});
+
+// ── BOOT ──
+initMap();
+renderList();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
