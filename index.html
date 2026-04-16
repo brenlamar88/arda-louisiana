@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADRD Louisiana – Alzheimer's & Related Dementia Association</title>
 <meta name="description" content="The Alzheimer's and Related Dementia Association of Louisiana — education, early detection, and care for those living with cognitive decline.">
 <link rel="stylesheet" href="css/main.css">
@@ -30,10 +29,10 @@
 .pillar-diagnosis{background:#f0f5fb;border-top:4px solid var(--diagnosis);}
 .pillar-treatment{background:#faf0f6;border-top:4px solid var(--treatment);}
 .pillar-num{position:absolute;top:1.5rem;right:2rem;font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;opacity:.06;line-height:1;pointer-events:none;}
-.pillar-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem;}
-.pillar-prevention .pillar-icon{background:rgba(42,125,111,.12);}
-.pillar-diagnosis .pillar-icon{background:rgba(26,90,138,.12);}
-.pillar-treatment .pillar-icon{background:rgba(122,48,96,.12);}
+.pillar-icon-wrap{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;}
+.pillar-prevention .pillar-icon-wrap{background:rgba(42,125,111,.12);color:var(--prevention);}
+.pillar-diagnosis .pillar-icon-wrap{background:rgba(26,90,138,.12);color:var(--diagnosis);}
+.pillar-treatment .pillar-icon-wrap{background:rgba(122,48,96,.12);color:var(--treatment);}
 .pillar-tag{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem;display:block;}
 .pillar-prevention .pillar-tag{color:var(--prevention);}
 .pillar-diagnosis .pillar-tag{color:var(--diagnosis);}
@@ -41,11 +40,11 @@
 .pillar h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem;}
 .pillar ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem;}
 .pillar ul li{display:flex;align-items:flex-start;gap:.65rem;font-size:.9rem;color:var(--text-mid);line-height:1.5;}
-.pillar ul li::before{content:'→';font-size:.72rem;margin-top:.22rem;flex-shrink:0;font-weight:700;}
-.pillar-prevention ul li::before{color:var(--prevention);}
-.pillar-diagnosis ul li::before{color:var(--diagnosis);}
-.pillar-treatment ul li::before{color:var(--treatment);}
-.pillar-cta{display:inline-flex;align-items:center;gap:.35rem;font-size:.87rem;font-weight:600;text-decoration:none;padding:.55rem 1.1rem;border-radius:4px;transition:all .2s;}
+.pillar ul li svg{flex-shrink:0;margin-top:.2rem;opacity:.7;}
+.pillar-prevention ul li svg{stroke:var(--prevention);}
+.pillar-diagnosis ul li svg{stroke:var(--diagnosis);}
+.pillar-treatment ul li svg{stroke:var(--treatment);}
+.pillar-cta{display:inline-flex;align-items:center;gap:.5rem;font-size:.87rem;font-weight:600;text-decoration:none;padding:.55rem 1.1rem;border-radius:4px;transition:all .2s;}
 .pillar-prevention .pillar-cta{background:var(--prevention);color:var(--white);}
 .pillar-prevention .pillar-cta:hover{background:#1f6357;}
 .pillar-diagnosis .pillar-cta{background:var(--diagnosis);color:var(--white);}
@@ -70,10 +69,7 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-emblem">A</div>
-      <div class="nav-name">ADRD <span>Louisiana</span></div>
-    </a>
+    <a href="index.html" class="nav-logo"><div class="nav-emblem">A</div><div class="nav-name">ADRD <span>Louisiana</span></div></a>
     <ul class="nav-links">
       <li><a href="prevention.html">Prevention</a></li>
       <li><a href="diagnosis.html">Diagnosis</a></li>
@@ -120,45 +116,51 @@
 <div class="pillars-row">
   <div class="pillar pillar-prevention scroll-reveal">
     <div class="pillar-num">01</div>
-    <div class="pillar-icon">🌿</div>
+    <div class="pillar-icon-wrap">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
     <span class="pillar-tag">Pillar One</span>
     <h2>Prevention</h2>
     <ul>
-      <li>Understand your age &amp; family history risk</li>
-      <li>Genetics &amp; APOE status explained</li>
-      <li>Diet, exercise &amp; sleep habits that protect the brain</li>
-      <li>Heart health &amp; chronic disease management</li>
-      <li>Mental &amp; emotional wellbeing strategies</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Understand your age &amp; family history risk</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Genetics &amp; APOE status explained</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Diet, exercise &amp; sleep habits that protect the brain</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Heart health &amp; chronic disease management</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Mental &amp; emotional wellbeing strategies</li>
     </ul>
-    <a href="prevention.html" class="pillar-cta">Explore Prevention →</a>
+    <a href="prevention.html" class="pillar-cta">Explore Prevention <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
   <div class="pillar pillar-diagnosis scroll-reveal">
     <div class="pillar-num">02</div>
-    <div class="pillar-icon">🔬</div>
+    <div class="pillar-icon-wrap">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
     <span class="pillar-tag">Pillar Two</span>
     <h2>Diagnosis</h2>
     <ul>
-      <li>How do you know if it's dementia?</li>
-      <li>Changes in memory, learning &amp; word-finding</li>
-      <li>The diagnostic process explained</li>
-      <li>Screening exams — what to expect &amp; how helpful</li>
-      <li>When to consult a specialist</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>How do you know if it's dementia?</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Changes in memory, learning &amp; word-finding</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>The diagnostic process explained</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Screening exams — what to expect &amp; how helpful</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>When to consult a specialist</li>
     </ul>
-    <a href="diagnosis.html" class="pillar-cta">Explore Diagnosis →</a>
+    <a href="diagnosis.html" class="pillar-cta">Explore Diagnosis <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
   <div class="pillar pillar-treatment scroll-reveal">
     <div class="pillar-num">03</div>
-    <div class="pillar-icon">💊</div>
+    <div class="pillar-icon-wrap">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
     <span class="pillar-tag">Pillar Three</span>
     <h2>Treatment</h2>
     <ul>
-      <li>Treat to Prevent — early intervention matters</li>
-      <li>Symptomatic treatment options</li>
-      <li>Dual therapy &amp; Disease Modifying Drugs</li>
-      <li>Anti-Amyloid therapies (Leqembi®, Kisunla™)</li>
-      <li>Innovation &amp; clinical trials in Louisiana</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Treat to Prevent — early intervention matters</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Symptomatic treatment options</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Dual therapy &amp; Disease Modifying Drugs</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Anti-Amyloid therapies (Leqembi®, Kisunla™)</li>
+      <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Innovation &amp; clinical trials in Louisiana</li>
     </ul>
-    <a href="treatment.html" class="pillar-cta">Explore Treatment →</a>
+    <a href="treatment.html" class="pillar-cta">Explore Treatment <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </div>
 
@@ -192,16 +194,9 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <a href="index.html" class="footer-logo-wrap">
-          <div class="nav-emblem">A</div>
-          <div class="footer-logo-name">ADRD <span>Louisiana</span></div>
-        </a>
-        <p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana — serving patients, families, and clinicians across the state.</p>
-      </div>
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana — serving patients, families, and clinicians across the state.</p></div>
       <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
-      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="providers.html">Find Providers</a></li>
-      <li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li><li><a href="contact.html">Send a Message</a></li></ul></div>
     </div>
     <div class="footer-bottom">

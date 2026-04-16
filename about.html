@@ -9,7 +9,7 @@
 .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
 .mission-card{text-align:center;padding:2.5rem 1.75rem;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
 .mission-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
-.mission-icon{font-size:2.5rem;margin-bottom:1rem;}
+.mission-icon{margin-bottom:1rem;color:var(--teal);}
 .mission-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
 .mission-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:2.5rem;}
@@ -66,17 +66,17 @@
     <p class="section-lead">Louisiana has one of the highest Alzheimer's prevalence rates in the United States — 12.4% — driven by high rates of vascular disease, diabetes, and health disparities across our communities. ADRD Louisiana was created to meet this challenge with specialized, locally-focused expertise.</p>
     <div class="mission-grid">
       <div class="mission-card scroll-reveal">
-        <div class="mission-icon">📚</div>
+        <div class="mission-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
         <h3>Education</h3>
         <p>We provide evidence-based public education on dementia prevention, recognition, and care — through community events, online resources, and partnerships with healthcare providers across Louisiana.</p>
       </div>
       <div class="mission-card scroll-reveal">
-        <div class="mission-icon">🤝</div>
+        <div class="mission-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Support</h3>
         <p>We connect patients, families, and caregivers with the resources, specialists, and support communities they need — navigating a healthcare system that can be difficult to navigate alone.</p>
       </div>
       <div class="mission-card scroll-reveal">
-        <div class="mission-icon">🔬</div>
+        <div class="mission-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Research</h3>
         <p>We advance clinical research and advocate for Louisiana's participation in national trials. Early detection and disease-modifying therapies represent a transformative opportunity for our patients.</p>
       </div>
@@ -139,6 +139,19 @@
   </div>
 </section>
 
+
+<!-- LOUISIANA IMAGE -->
+<div style="background:var(--white);padding:0 0 3rem;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+    <div class="section-img-wrap" style="height:280px;">
+      <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1400&q=80" alt="New Orleans, Louisiana — the heart of ADRD Louisiana's service area" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,39,68,.5) 0%,transparent 50%);"></div>
+      <div style="position:absolute;bottom:1.25rem;right:1.5rem;text-align:right;">
+        <p style="color:rgba(255,255,255,.8);font-size:.8rem;font-style:italic;">New Orleans, Louisiana</p>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- LOUISIANA CONTEXT -->
 <section class="dark">
   <div class="container two-col">
@@ -151,15 +164,15 @@
     <div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:1.25rem;margin-top:.5rem;">
         <li style="display:flex;gap:1rem;align-items:flex-start;">
-          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📊</div>
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-light);"><svg class="icon icon-md" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">12.4% Prevalence Rate</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Louisiana ranks among the top five states nationally for Alzheimer's prevalence — driven by an aging population and high vascular risk factors.</p></div>
         </li>
         <li style="display:flex;gap:1rem;align-items:flex-start;">
-          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🌾</div>
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-light);"><svg class="icon icon-md" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
           <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">Rural Access Gaps</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Many Louisiana parishes lack access to neurologists or memory specialists. Telehealth and community-based programs are critical to bridging this gap.</p></div>
         </li>
         <li style="display:flex;gap:1rem;align-items:flex-start;">
-          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✊</div>
+          <div style="width:44px;height:44px;background:rgba(200,151,58,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-light);"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <div><h4 style="font-size:.93rem;font-weight:600;color:var(--white);margin-bottom:.3rem;">Health Disparities</h4><p style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.6;">Black Americans in Louisiana face twice the dementia risk of white Americans, driven by higher rates of hypertension, diabetes, and reduced healthcare access. Addressing these disparities is a core focus.</p></div>
         </li>
       </ul>

@@ -9,7 +9,7 @@
 .resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
 .resource-card{background:var(--white);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow-sm);border-top:3px solid var(--gold);transition:transform .2s,box-shadow .2s;}
 .resource-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
-.resource-card .rc-icon{font-size:1.8rem;margin-bottom:.75rem;}
+.resource-card .rc-icon{margin-bottom:.75rem;color:var(--teal);}
 .resource-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
 .resource-card p{font-size:.86rem;color:var(--text-mid);line-height:1.6;margin-bottom:.75rem;}
 .resource-card a.rc-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.83rem;font-weight:600;color:var(--teal);text-decoration:none;transition:color .2s;}
@@ -20,7 +20,7 @@
 .helpline-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold-light);}
 .la-resources{display:flex;flex-direction:column;gap:1rem;margin-top:2.5rem;}
 .la-item{background:var(--white);border-radius:var(--radius);padding:1.5rem 1.75rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;}
-.la-item-icon{width:44px;height:44px;background:rgba(26,39,68,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+.la-item-icon{width:44px;height:44px;background:rgba(26,39,68,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--navy);}
 .la-item h4{font-size:.93rem;font-weight:600;color:var(--navy);margin-bottom:.2rem;}
 .la-item p{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
 .la-item a{white-space:nowrap;font-size:.83rem;font-weight:600;color:var(--teal);text-decoration:none;transition:color .2s;}
@@ -78,37 +78,37 @@
     <h2 class="section-title">Trusted <em>National Resources</em></h2>
     <div class="resource-grid">
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">🔵</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         <h3>Alzheimer's Association</h3>
         <p>The leading voluntary health organization in Alzheimer's care, support, and research. Provides free care consultation, support groups, education programs, and the 24/7 helpline.</p>
         <a href="https://www.alz.org" class="rc-link" target="_blank" rel="noopener">alz.org →</a>
       </div>
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">🧠</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
         <h3>Alzheimer's Disease Education &amp; Referral Center (ADEAR)</h3>
         <p>A service of the National Institute on Aging. Provides current, comprehensive, and reliable information about Alzheimer's disease for patients, caregivers, and health professionals.</p>
         <a href="https://www.nia.nih.gov/health/alzheimers" class="rc-link" target="_blank" rel="noopener">nia.nih.gov →</a>
       </div>
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">🏛️</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3>Alzheimers.gov</h3>
         <p>The official U.S. government portal for information on Alzheimer's and dementia research, treatment, clinical trials, caregiving resources, and federal programs.</p>
         <a href="https://www.alzheimers.gov" class="rc-link" target="_blank" rel="noopener">alzheimers.gov →</a>
       </div>
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">🔬</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>ClinicalTrials.gov</h3>
         <p>Official registry of all U.S. clinical trials. Search for Alzheimer's or dementia trials enrolling near you. ADRD Louisiana can help you understand eligibility and connect with research teams.</p>
         <a href="https://clinicaltrials.gov" class="rc-link" target="_blank" rel="noopener">clinicaltrials.gov →</a>
       </div>
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">🤝</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Lewy Body Dementia Association</h3>
         <p>Specialized information, research support, and a care consultation service specifically for Lewy body dementia — a commonly misdiagnosed form of dementia with unique treatment considerations.</p>
         <a href="https://www.lbda.org" class="rc-link" target="_blank" rel="noopener">lbda.org →</a>
       </div>
       <div class="resource-card scroll-reveal">
-        <div class="rc-icon">💜</div>
+        <div class="rc-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <h3>Caregiver Action Network</h3>
         <p>Resources specifically for family caregivers — covering education, peer support, advocacy, and practical tools for managing the demands of caring for someone with dementia or other chronic conditions.</p>
         <a href="https://www.caregiveraction.org" class="rc-link" target="_blank" rel="noopener">caregiveraction.org →</a>
@@ -125,32 +125,32 @@
     <p class="section-lead">These programs are tailored to Louisiana residents and address the unique needs of our communities, including rural access and health disparity challenges.</p>
     <div class="la-resources">
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">🏥</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <div><h4>Alzheimer's Association — Louisiana Chapter</h4><p>Your local chapter provides care consultations, support groups throughout the state, and community education programs. Free services for patients and families.</p></div>
         <a href="https://www.alz.org/louisiana" target="_blank" rel="noopener">Visit →</a>
       </div>
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">📋</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <div><h4>2023–2028 Louisiana ADRD State Plan</h4><p>Louisiana's official public health roadmap for addressing Alzheimer's and related dementias — including goals for early diagnosis, risk reduction, and caregiver support across the state.</p></div>
         <a href="https://wellaheadla.com/healthy-aging/alzheimers-and-dementia/" target="_blank" rel="noopener">Learn More →</a>
       </div>
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">🌿</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div><h4>Well-Ahead Louisiana — Aging &amp; Brain Health</h4><p>State health department resources on Alzheimer's prevention, cognitive decline, and healthy aging in Louisiana. Includes community-level data and public health resources.</p></div>
         <a href="https://wellaheadla.com" target="_blank" rel="noopener">Visit →</a>
       </div>
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">🎓</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
         <div><h4>LSUHSC — Neuroscience Center</h4><p>Louisiana State University Health Sciences Center in New Orleans offers specialty neurology and neuropsychology services, as well as participation in Alzheimer's research programs.</p></div>
         <a href="https://www.lsuhsc.edu" target="_blank" rel="noopener">Visit →</a>
       </div>
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">🔬</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <div><h4>Tulane Neurosciences</h4><p>Tulane University Medical Center provides comprehensive memory evaluation, neuroimaging, neuropsychological testing, and access to clinical trials for Alzheimer's and related dementias.</p></div>
         <a href="https://medicine.tulane.edu/departments/neurology" target="_blank" rel="noopener">Visit →</a>
       </div>
       <div class="la-item scroll-reveal">
-        <div class="la-item-icon">👴</div>
+        <div class="la-item-icon"><svg class="icon icon-md" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
         <div><h4>Louisiana Governor's Office of Elderly Affairs (GOEA)</h4><p>Statewide services including Area Agencies on Aging, home-based services, and caregiver support programs. A key connector to local services throughout all Louisiana parishes.</p></div>
         <a href="https://goea.louisiana.gov" target="_blank" rel="noopener">Visit →</a>
       </div>
@@ -166,7 +166,7 @@
     <p class="section-lead">Louisiana's 168,000 unpaid dementia caregivers provide an estimated 256 million hours of care annually. Caregiver wellbeing is inseparable from patient wellbeing.</p>
     <div class="caregiver-tips">
       <div class="ct-card scroll-reveal">
-        <h3>🆘 When You Need Help Now</h3>
+        <h3 style="display:flex;align-items:center;gap:.55rem;"><svg class="icon icon-md" viewBox="0 0 24 24" style="flex-shrink:0;stroke:var(--teal)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> When You Need Help Now</h3>
         <ul>
           <li>Alzheimer's Association 24/7 Helpline: 800-272-3900</li>
           <li>For crisis situations, call 988 (Suicide &amp; Crisis Lifeline)</li>
@@ -175,7 +175,7 @@
         </ul>
       </div>
       <div class="ct-card scroll-reveal">
-        <h3>📚 Education &amp; Training</h3>
+        <h3 style="display:flex;align-items:center;gap:.55rem;"><svg class="icon icon-md" viewBox="0 0 24 24" style="flex-shrink:0;stroke:var(--teal)"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Education &amp; Training</h3>
         <ul>
           <li>Alzheimer's Association online education programs (free)</li>
           <li>Savvy Caregiver Program — evidence-based training for dementia caregivers</li>
@@ -184,7 +184,7 @@
         </ul>
       </div>
       <div class="ct-card scroll-reveal">
-        <h3>🧘 Respite &amp; Self-Care</h3>
+        <h3 style="display:flex;align-items:center;gap:.55rem;"><svg class="icon icon-md" viewBox="0 0 24 24" style="flex-shrink:0;stroke:var(--teal)"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Respite &amp; Self-Care</h3>
         <ul>
           <li>ARCH National Respite Network — find respite programs in Louisiana</li>
           <li>Adult day programs provide supervised care and social engagement</li>
@@ -193,7 +193,7 @@
         </ul>
       </div>
       <div class="ct-card scroll-reveal">
-        <h3>💰 Financial &amp; Legal Planning</h3>
+        <h3 style="display:flex;align-items:center;gap:.55rem;"><svg class="icon icon-md" viewBox="0 0 24 24" style="flex-shrink:0;stroke:var(--teal)"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Financial &amp; Legal Planning</h3>
         <ul>
           <li>Medicare.gov — coverage information for dementia care services</li>
           <li>Medicaid waiver programs for home and community-based services</li>
