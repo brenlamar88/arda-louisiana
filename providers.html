@@ -74,7 +74,8 @@
 .popup-btn.secondary{background:var(--white);color:var(--navy);border:1px solid var(--cream-dark);}
 .popup-btn.secondary:hover{background:var(--navy);color:var(--white);}
 
-/* Legend */
+/* Map wrapper (desktop: fills grid cell) */
+.map-wrap{position:relative;height:100%;}
 .map-legend{position:absolute;bottom:28px;left:380px;z-index:400;background:var(--white);border-radius:10px;padding:.9rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,.12);min-width:170px;}
 .legend-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.6rem;}
 .legend-row{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--text-mid);margin-bottom:.35rem;}
@@ -85,13 +86,106 @@
 .map-stat-pill{background:var(--white);border-radius:8px;padding:.55rem .9rem;box-shadow:0 3px 12px rgba(0,0,0,.1);font-size:.78rem;color:var(--text-mid);white-space:nowrap;}
 .map-stat-pill strong{color:var(--navy);font-size:.92rem;display:block;}
 
-/* Mobile */
+/* ── MOBILE TAB SWITCHER ── */
+.mobile-tabs{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;
+  height:56px;
+  background:var(--white);
+  border-top:1px solid var(--cream-dark);
+  box-shadow:0 -4px 16px rgba(0,0,0,.08);
+  z-index:500;
+  grid-template-columns:1fr 1fr;
+}
+.tab-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;border:none;background:transparent;
+  font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;
+  color:var(--text-light);cursor:pointer;transition:color .2s;
+  letter-spacing:.03em;text-transform:uppercase;
+}
+.tab-btn .tab-icon{font-size:1.1rem;line-height:1;}
+.tab-btn.active{color:var(--teal);}
+.tab-btn.active .tab-icon{transform:scale(1.1);}
+
 @media(max-width:900px){
-  .providers-layout{grid-template-columns:1fr;height:auto;margin-top:68px;}
-  #map{height:50vh;}
-  .sidebar{height:50vh;overflow-y:auto;}
-  .map-legend{left:12px;bottom:calc(50vh + 8px);}
+  /* Layout: full screen, tabs handle toggling */
+  .providers-layout{
+    display:block;
+    height:calc(100vh - 68px);
+    margin-top:68px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* Sidebar fills full height, slides in/out */
+  .sidebar{
+    position:absolute;top:0;left:0;right:0;bottom:56px;
+    height:auto;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    transition:transform .3s ease;
+    z-index:10;
+  }
+  .sidebar.hidden{transform:translateX(-100%);pointer-events:none;}
+
+  /* Map wrapper fills full height */
+  .map-wrap{
+    position:absolute;top:0;left:0;right:0;bottom:56px;
+    transition:transform .3s ease;
+  }
+  .map-wrap.hidden{transform:translateX(100%);pointer-events:none;}
+
+  #map{height:100%;width:100%;}
+
+  /* Show tabs on mobile */
+  .mobile-tabs{display:grid;}
+
+  /* Sidebar header: slightly more compact */
+  .sidebar-header{padding:1rem 1rem .75rem;}
+  .sidebar-header h2{font-size:1.35rem;}
+
+  /* Filters: horizontal scroll */
+  .filters{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:2px;
+    gap:.4rem;
+  }
+  .filters::-webkit-scrollbar{display:none;}
+  .filter-btn{
+    flex-shrink:0;
+    padding:.35rem .85rem;
+    font-size:.78rem;
+    min-height:34px;
+  }
+
+  /* Bigger touch targets on provider cards */
+  .provider-card{padding:1rem 1rem;}
+  .pc-name{font-size:.9rem;}
+
+  /* Legend: bottom-left, above tabs */
+  .map-legend{
+    left:10px;
+    bottom:64px;
+    padding:.65rem .85rem;
+  }
+  .legend-title{font-size:.68rem;}
+  .legend-row{font-size:.75rem;margin-bottom:.25rem;}
+
+  /* Stats: hide on mobile */
   .map-stats{display:none;}
+
+  /* Popup: constrained width for small screens */
+  .leaflet-popup-content{width:240px !important;}
+  .popup-inner{padding:.9rem 1rem;}
+  .popup-name{font-size:1.05rem;}
+  .popup-actions{padding:.6rem 1rem;}
+  .popup-btn{font-size:.76rem;padding:.4rem .4rem;}
+
+  /* Search box: full width comfortable */
+  .search-wrap input{font-size:.9rem;padding:.7rem 1rem .7rem 2.4rem;}
 }
 </style>
 </head>
@@ -134,8 +228,8 @@
     <div class="provider-list" id="provider-list"></div>
   </div>
 
-  <!-- MAP -->
-  <div style="position:relative;">
+  <!-- MAP WRAP -->
+  <div class="map-wrap" id="map-wrap">
     <div id="map"></div>
 
     <!-- Legend -->
@@ -154,6 +248,19 @@
       <div class="map-stat-pill"><strong>800-272-3900</strong>24/7 Helpline</div>
     </div>
   </div>
+
+</div>
+
+<!-- MOBILE TAB BAR -->
+<div class="mobile-tabs" id="mobile-tabs">
+  <button class="tab-btn active" id="tab-list" onclick="switchTab('list')">
+    <span class="tab-icon">☰</span>
+    <span>List</span>
+  </button>
+  <button class="tab-btn" id="tab-map" onclick="switchTab('map')">
+    <span class="tab-icon">🗺</span>
+    <span>Map</span>
+  </button>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -353,8 +460,39 @@ function selectProvider(id) {
   setActiveCard(id);
   const p = PROVIDERS.find(x => x.id === id);
   if (!p) return;
-  map.setView([p.lat, p.lng], 13, { animate: true });
-  setTimeout(() => markers[id] && markers[id].openPopup(), 400);
+  // On mobile, switch to map tab first, then fly
+  if (window.innerWidth <= 900) {
+    switchTab('map');
+    setTimeout(() => {
+      map.invalidateSize();
+      map.setView([p.lat, p.lng], 14, { animate: true });
+      setTimeout(() => markers[id] && markers[id].openPopup(), 500);
+    }, 320);
+  } else {
+    map.setView([p.lat, p.lng], 13, { animate: true });
+    setTimeout(() => markers[id] && markers[id].openPopup(), 400);
+  }
+}
+
+function switchTab(tab) {
+  const sidebar = document.querySelector('.sidebar');
+  const mapWrap = document.getElementById('map-wrap');
+  const tabList = document.getElementById('tab-list');
+  const tabMap  = document.getElementById('tab-map');
+
+  if (tab === 'list') {
+    sidebar.classList.remove('hidden');
+    mapWrap.classList.add('hidden');
+    tabList.classList.add('active');
+    tabMap.classList.remove('active');
+  } else {
+    sidebar.classList.add('hidden');
+    mapWrap.classList.remove('hidden');
+    tabMap.classList.add('active');
+    tabList.classList.remove('active');
+    // Leaflet needs a size refresh after being hidden
+    setTimeout(() => map && map.invalidateSize(), 50);
+  }
 }
 
 function setActiveCard(id) {
