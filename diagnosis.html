@@ -18,6 +18,7 @@
 .step-dot{width:42px;height:42px;background:var(--diagnosis);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.9rem;flex-shrink:0;position:relative;z-index:1;}
 .step-body h4{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
 .step-body p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.step-note{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(42,125,111,.08);border:1px solid rgba(42,125,111,.2);border-radius:4px;padding:.3rem .65rem;margin-top:.6rem;}
 .screening-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
 .screening-card{background:var(--cream);border-radius:var(--radius);padding:1.75rem;border-top:3px solid var(--diagnosis);}
 .screening-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;}
@@ -36,6 +37,7 @@
 .type-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--navy);margin-bottom:.65rem;}
 .type-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
 .type-pct{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--diagnosis);line-height:1;margin-bottom:.5rem;}
+.la-note{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:600;color:var(--gold);background:rgba(200,151,58,.1);border:1px solid rgba(200,151,58,.25);border-radius:4px;padding:.25rem .6rem;margin-top:.6rem;}
 @media(max-width:768px){.warning-signs,.screening-grid,.types-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -64,7 +66,6 @@
     <p>Recognizing the early signs of dementia and pursuing a timely diagnosis can open the door to treatment, planning, and support. Here's what you need to know.</p>
   </div>
 </div>
-
 
 <div style="background:var(--white);padding:0;">
   <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
@@ -99,23 +100,47 @@
   </div>
 </section>
 
-<!-- TYPES OF DEMENTIA -->
+<!-- TYPES OF DEMENTIA — UPDATED -->
 <section class="cream">
   <div class="container">
     <span class="section-eyebrow" style="color:var(--diagnosis);">Types of Dementia</span>
     <h2 class="section-title">Not All Dementia Is <em>Alzheimer's</em></h2>
     <p class="section-lead">Alzheimer's disease accounts for the majority of dementia cases, but there are several distinct types — each with different underlying causes, progression patterns, and treatment approaches.</p>
     <div class="types-grid">
-      <div class="type-card scroll-reveal"><div class="type-pct">60–80%</div><h3>Alzheimer's Disease</h3><p>The most common form. Characterized by amyloid plaques and tau tangles in the brain. Symptoms typically begin with short-term memory loss and progress to affect language, reasoning, and daily function. The only form currently with FDA-approved disease-modifying therapies.</p></div>
-      <div class="type-card scroll-reveal"><div class="type-pct">~10%</div><h3>Vascular Dementia</h3><p>Caused by reduced blood flow to the brain, often following a stroke or series of mini-strokes. Symptoms may appear suddenly after a vascular event or progress more gradually. Risk factors overlap heavily with heart disease. Especially prevalent in Louisiana given the state's high rates of hypertension and diabetes.</p></div>
-      <div class="type-card scroll-reveal"><div class="type-pct">~5%</div><h3>Lewy Body Dementia</h3><p>Caused by abnormal deposits of alpha-synuclein protein in the brain. Distinct features include vivid hallucinations, significant fluctuations in alertness, REM sleep behavior disorder, and Parkinson's-like movement symptoms. Often misdiagnosed as Alzheimer's or Parkinson's disease.</p></div>
-      <div class="type-card scroll-reveal"><div class="type-pct">~5%</div><h3>Frontotemporal Dementia (FTD)</h3><p>Affects the frontal and temporal lobes, causing changes in personality, behavior, and language rather than memory loss. More commonly strikes people in their 50s and 60s. Often misdiagnosed as a psychiatric condition. Includes variants such as Pick's disease and Primary Progressive Aphasia.</p></div>
+      <div class="type-card scroll-reveal">
+        <div class="type-pct">60–80%</div>
+        <h3>Alzheimer's Disease</h3>
+        <p>The most common form. Characterized by amyloid plaques and tau tangles in the brain. Symptoms typically begin with short-term memory loss and progress to affect language, reasoning, and daily function. The only form currently with FDA-approved disease-modifying therapies.</p>
+      </div>
+      <!-- UPDATED: Vascular dementia — no stroke history required -->
+      <div class="type-card scroll-reveal">
+        <div class="type-pct">~10%</div>
+        <h3>Vascular Dementia</h3>
+        <p>Caused by reduced blood flow to the brain, which may result from a stroke, a series of mini-strokes, or chronic small vessel disease — <strong>a stroke history is not required</strong>. Symptoms may appear suddenly after a vascular event or develop gradually over time. Risk factors overlap heavily with heart disease. Especially prevalent in Louisiana given the state's high rates of hypertension and diabetes.</p>
+      </div>
+      <div class="type-card scroll-reveal">
+        <div class="type-pct">~5%</div>
+        <h3>Lewy Body Dementia</h3>
+        <p>Caused by abnormal deposits of alpha-synuclein protein in the brain. Distinct features include vivid hallucinations, significant fluctuations in alertness, REM sleep behavior disorder, and Parkinson's-like movement symptoms. Often misdiagnosed as Alzheimer's or Parkinson's disease.</p>
+      </div>
+      <!-- UPDATED: FTD specifying Behavioral Variant -->
+      <div class="type-card scroll-reveal">
+        <div class="type-pct">~5%</div>
+        <h3>Frontotemporal Dementia (FTD)</h3>
+        <p>Affects the frontal and temporal lobes, causing changes in personality, behavior, and language rather than memory loss. The most common variant, <strong>Behavioral Variant FTD (bvFTD)</strong>, presents with dramatic changes in personality, social conduct, and impulse control. More commonly strikes people in their 50s and 60s, and is often initially misdiagnosed as a psychiatric condition. Other variants include Primary Progressive Aphasia (PPA).</p>
+      </div>
+      <!-- NEW: Mixed Dementia card -->
+      <div class="type-card scroll-reveal" style="border-top:3px solid var(--gold);grid-column:span 2;">
+        <div class="type-pct" style="color:var(--gold);">Common</div>
+        <h3>Mixed Dementia <span style="font-size:.85rem;font-weight:400;color:var(--text-light);font-family:'DM Sans',sans-serif;">— Particularly Common in Louisiana</span></h3>
+        <p>Many patients show pathological features of more than one type of dementia simultaneously. The most common combination is <strong>Alzheimer's disease with vascular dementia (AD + VaD)</strong>, which is particularly prevalent in Louisiana given the state's high rates of cardiovascular disease, hypertension, and diabetes. Mixed dementia often progresses more rapidly than either condition alone and underscores the importance of managing vascular risk factors even after an Alzheimer's diagnosis. A comprehensive workup is essential for accurate diagnosis and appropriate treatment planning.</p>
+        <span class="la-note">⚑ Especially prevalent in Louisiana due to high rates of vascular disease</span>
+      </div>
     </div>
-    <p style="font-size:.82rem;color:var(--text-light);margin-top:1.5rem;">* Many patients have mixed dementia — features of more than one type simultaneously. A comprehensive workup is essential for accurate diagnosis and appropriate treatment planning.</p>
   </div>
 </section>
 
-<!-- DIAGNOSTIC PROCESS -->
+<!-- DIAGNOSTIC PROCESS — UPDATED steps 4 and 7 -->
 <section class="dark">
   <div class="container">
     <div class="two-col">
@@ -129,9 +154,12 @@
         <div class="process-step scroll-reveal"><div class="step-dot">1</div><div class="step-body"><h4>Medical History &amp; Interview</h4><p>Your doctor will ask about your symptoms, when they began, and how they've changed over time. Input from a family member or close friend is often invaluable, as patients may not be aware of the full extent of changes.</p></div></div>
         <div class="process-step scroll-reveal"><div class="step-dot">2</div><div class="step-body"><h4>Cognitive &amp; Neuropsychological Testing</h4><p>Standardized tests assess memory, problem-solving, attention, counting, and language. Common screening tools include the Mini-Mental State Examination (MMSE), Montreal Cognitive Assessment (MoCA), and Mini-Cog. More detailed neuropsychological testing may follow.</p></div></div>
         <div class="process-step scroll-reveal"><div class="step-dot">3</div><div class="step-body"><h4>Physical &amp; Neurological Exam</h4><p>A neurological exam assesses reflexes, coordination, balance, sensory function, and eye movements to identify signs that may indicate other neurological conditions contributing to symptoms.</p></div></div>
-        <div class="process-step scroll-reveal"><div class="step-dot">4</div><div class="step-body"><h4>Laboratory Tests</h4><p>Blood tests rule out reversible causes of cognitive decline such as thyroid disorders, vitamin B12 deficiency, infections, or medication interactions — all of which can mimic dementia symptoms.</p></div></div>
+        <!-- UPDATED: Step 4 — note that some cognitive changes may be treatable -->
+        <div class="process-step scroll-reveal"><div class="step-dot">4</div><div class="step-body"><h4>Laboratory Tests</h4><p>Blood tests rule out reversible causes of cognitive decline such as thyroid disorders, vitamin B12 deficiency, infections, or medication interactions — all of which can mimic dementia symptoms.</p><span class="step-note">✓ Important: some cognitive changes identified at this stage may be treatable or reversible</span></div></div>
         <div class="process-step scroll-reveal"><div class="step-dot">5</div><div class="step-body"><h4>Brain Imaging</h4><p>CT or MRI scans can reveal strokes, tumors, or shrinkage of brain regions associated with specific dementias. PET scans can detect amyloid plaques or glucose metabolism patterns characteristic of Alzheimer's disease.</p></div></div>
         <div class="process-step scroll-reveal"><div class="step-dot">6</div><div class="step-body"><h4>Biomarker Testing (Advanced)</h4><p>Cerebrospinal fluid (CSF) analysis or specialized blood tests (e.g., plasma p-tau217) can detect Alzheimer's biomarkers with high accuracy. These tests are increasingly being used in clinical practice to confirm diagnosis before initiating anti-amyloid therapy.</p></div></div>
+        <!-- NEW: Step 7 — clinical trial referral -->
+        <div class="process-step scroll-reveal"><div class="step-dot">7</div><div class="step-body"><h4>Consider Referral for Clinical Trials</h4><p>Following a confirmed diagnosis — particularly for early-stage Alzheimer's or MCI — your clinician should discuss whether participation in a clinical trial is appropriate. Louisiana has active research programs at LSUHSC, Tulane, and other academic centers. Early-stage patients are often the best candidates for emerging disease-modifying therapies under investigation.</p><a href="resources.html" style="font-size:.82rem;font-weight:600;color:var(--gold-light);text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;">Find Louisiana Research Programs →</a></div></div>
       </div>
     </div>
   </div>
@@ -163,7 +191,7 @@
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ — UPDATED blood test answer -->
 <section class="cream">
   <div class="container-sm">
     <span class="section-eyebrow" style="color:var(--diagnosis);">Common Questions</span>
@@ -172,7 +200,8 @@
       <div class="faq-item"><div class="faq-q">Do I need to see a specialist to get a dementia diagnosis?</div><div class="faq-a"><p>Your primary care physician can perform initial screening and rule out other causes. However, a definitive diagnosis — especially for less common dementias or atypical presentations — typically requires evaluation by a neurologist, geriatrician, or neuropsychologist. If anti-amyloid therapy is being considered, specialist involvement is essential.</p></div></div>
       <div class="faq-item"><div class="faq-q">Is normal aging the same as dementia?</div><div class="faq-a"><p>No. Normal age-related changes include occasionally forgetting a name but remembering it later, making the occasional error when managing finances, and needing a bit more time to learn new things. Dementia involves significant, progressive changes that interfere with daily life — not occasional lapses that correct themselves.</p></div></div>
       <div class="faq-item"><div class="faq-q">What is Mild Cognitive Impairment (MCI)?</div><div class="faq-a"><p>MCI is an intermediate stage between normal cognitive aging and dementia. People with MCI have noticeable cognitive changes that go beyond normal aging but don't yet significantly interfere with daily life. About 10–15% of people with MCI progress to dementia each year, though some remain stable or even improve. MCI is now recognized as an important intervention window for emerging disease-modifying therapies.</p></div></div>
-      <div class="faq-item"><div class="faq-q">Can a blood test diagnose Alzheimer's?</div><div class="faq-a"><p>Yes — increasingly. Blood tests measuring plasma phospho-tau 217 (p-tau217) and amyloid beta ratios now show high accuracy (90%+) for detecting Alzheimer's-related brain changes. The FDA cleared the first blood-based Alzheimer's diagnostic (Lumipulse) in 2024. These tests are becoming more widely available through neurologists and memory clinics but are not yet standard in routine primary care.</p></div></div>
+      <!-- UPDATED: Blood test FAQ — softened to reflect clinical reality -->
+      <div class="faq-item"><div class="faq-q">Can a blood test diagnose Alzheimer's?</div><div class="faq-a"><p>There is increasing data to support the use of blood-based biomarkers — particularly plasma phospho-tau 217 (p-tau217) and amyloid beta ratios — for identifying Alzheimer's-related brain changes. However, these tests are not yet widely used as standard of care in clinical practice and are not currently considered the gold standard for diagnosis. They are most appropriately used in the context of specialist evaluation, and results should always be interpreted alongside clinical history, cognitive testing, and imaging. Their role in routine primary care continues to evolve rapidly.</p></div></div>
       <div class="faq-item"><div class="faq-q">How early can Alzheimer's be detected?</div><div class="faq-a"><p>Alzheimer's brain changes begin 15–20 years before symptoms appear. With biomarker testing (PET scans or blood tests for amyloid/tau), it is now possible to detect these changes in the preclinical stage. Early detection opens the window for disease-modifying therapies like lecanemab and donanemab, which are most effective before significant neuronal damage has occurred.</p></div></div>
     </div>
     <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
@@ -185,10 +214,9 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Alzheimer's &amp; Related Dementia Association of Louisiana.</p></div>
+      <div><a href="index.html" class="footer-logo-wrap"><div class="nav-emblem">A</div><div class="footer-logo-name">ADRD <span>Louisiana</span></div></a><p class="footer-tagline">Brain Institute of Louisiana — in collaboration with the Louisiana Department of Health and the Governor's ADRD Advisory Council.</p></div>
       <div class="footer-col"><h4>Learn</h4><ul><li><a href="prevention.html">Prevention</a></li><li><a href="diagnosis.html">Diagnosis</a></li><li><a href="treatment.html">Treatment</a></li></ul></div>
-      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="providers.html">Find Providers</a></li>
-      <li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About Us</a></li><li><a href="providers.html">Find Providers</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>24/7 Helpline</h4><ul><li><a href="tel:8002723900">800-272-3900</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p class="footer-legal">© 2025 ADRD Louisiana. For educational purposes only. Not medical advice.</p><div class="footer-helpline">24/7 Helpline: 800-272-3900</div></div>
