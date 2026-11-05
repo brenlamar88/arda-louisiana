@@ -47,7 +47,6 @@
 .type-research{background:rgba(139,94,60,.1);color:#8b5e3c;}
 .pc-org{font-size:.8rem;color:var(--text-mid);margin-bottom:.25rem;}
 .pc-addr{font-size:.78rem;color:var(--text-light);display:flex;align-items:flex-start;gap:.3rem;}
-.pc-addr::before{content:'<svg width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\'/><circle cx=\'12\' cy=\'10\' r=\'3\'/></svg>';font-size:.7rem;margin-top:.05rem;}
 .pc-meta{display:flex;gap:.75rem;margin-top:.5rem;flex-wrap:wrap;}
 .pc-chip{font-size:.72rem;color:var(--text-mid);background:var(--cream);padding:.18rem .5rem;border-radius:3px;}
 .no-results{padding:3rem 1.5rem;text-align:center;color:var(--text-light);font-size:.9rem;}
@@ -199,6 +198,7 @@
       <li><a href="treatment.html">Treatment</a></li>
       <li><a href="providers.html" class="active">Find Providers</a></li>
       <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta">Get Help</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -333,9 +333,8 @@ function initMap() {
     zoomControl: true,
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19
   }).addTo(map);
 
